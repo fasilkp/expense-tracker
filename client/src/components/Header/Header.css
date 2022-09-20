@@ -1,9 +1,13 @@
 .Header{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     height: 80px;
-    align-items: center;
+}
+.header-container{
+    width: 650px;
+    display: flex;
+    justify-content: space-between;
 }
 .header-item{
     display: flex;

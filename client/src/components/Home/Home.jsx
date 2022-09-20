@@ -14,11 +14,11 @@ function Home() {
                 <label>Spent</label>
                 <div className="home-amount">
                     <BiRupee/>
-                    <h2>10765</h2>
+                    <h1>10765</h1>
                 </div>
                 <label>Month</label>
                 <div className="home-month">
-                    <h3>20/09/2022</h3>
+                    <h4>09/2022</h4>
                 </div>
             </div>
             <div className="home-recent">

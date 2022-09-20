@@ -17,13 +17,18 @@
 .home-banner{
     width: 100%;
     background-color: #41224A;
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 30px;
     color: white;
 }
 .home-banner div{
     margin-bottom: 20px;
     margin-top: 5px;
+    padding-left: 5px;
+}
+.home-banner label{
+    color: rgba(255, 255, 255, 0.614);
+    font-size: .85rem;
 }
 .home-amount{
     display: flex;
@@ -53,24 +58,24 @@
     align-items: center;
 }
 .recent-list-profile{
-    flex: 10%;
+    width: 15%;
 }
 .recent-list-profile{
-    width: 50px;
+    width: 55px;
     height: 60px;
     background-color: #eeebf7;
     border-radius: 10px;
     font-size: 1.5rem;
 }
 .recent-list-desc{
-    flex: 70%;
+    width: 70%;
     align-items: flex-start;
     justify-content: space-around;
     padding-left: 10px;
     flex-direction: column;
 }
 .recent-list-amount{
-    flex: 20%;
+    width: 20%;
     flex-direction: column;
     justify-content: space-around;
     
@@ -87,3 +92,8 @@
 .home-recent-item:hover{
     box-shadow: 0px 0px 20px -10px grey;
 }
+@media only screen and (max-width: 600px) {
+    .home-container{
+        width: 95%;
+    }
+  }

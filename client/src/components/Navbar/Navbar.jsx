@@ -4,19 +4,19 @@ import './Navbar.css'
 function Navbar() {
   return (
     <div className='Navbar'>
-        <div className="nav-home">
-            <BiHome/>
+        <div className="nav-item nav-home">
+            <BiHome className='icon'/>
         </div>
-        <div className="nav-expense">
-            <BiListUl/>
+        <div className="nav-item nav-expense">
+            <BiListUl />
         </div>
-        <div className="nav-add-expense">
+        <div className="nav-item nav-add-expense">
             <BiBookAdd></BiBookAdd>
         </div>
-        <div className="nav-graph">
+        <div className="nav-item nav-graph">
             <BiBarChartAlt2/>
         </div>
-        <div className="nav-profile">
+        <div className="nav-item nav-profile">
             <BiUser/>
         </div>
     </div>
