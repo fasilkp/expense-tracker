@@ -1,0 +1,14 @@
+.Header{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    align-items: center;
+}
+.header-item{
+    display: flex;
+    align-items: center;
+}
+.header-item:first-child{
+    font-weight: 550;
+}
