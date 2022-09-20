@@ -1,0 +1,16 @@
+.Navbar{
+    display:flex;
+    width: 400px;
+    height: 60px;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    justify-content: space-evenly;
+    position: fixed;
+    left: 50%;
+    top: -20px;
+    transform: translate(-50%, 50%) 
+}
+.Navbar div{
+    font-size: 1.1rem;
+}
