@@ -6,6 +6,8 @@
 }
 .home-container{
     width: 650px;
+
+    padding-bottom: 80px;
 }
 .home-head{
     display: flex;
@@ -94,6 +96,6 @@
 }
 @media only screen and (max-width: 600px) {
     .home-container{
-        width: 95%;
+        width: 92%;
     }
   }
