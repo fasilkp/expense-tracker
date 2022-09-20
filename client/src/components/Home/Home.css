@@ -1,0 +1,89 @@
+.Home{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+.home-container{
+    width: 650px;
+}
+.home-head{
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    padding: 20px 0px;
+    padding-bottom: 30px;
+}
+.home-banner{
+    width: 100%;
+    background-color: #41224A;
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+}
+.home-banner div{
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+.home-amount{
+    display: flex;
+    align-items: flex-end;
+}
+.home-recent{
+
+}
+.recent-head{
+    margin: 20px 0px;
+    color: grey;
+}
+.home-recent-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    height: 80px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: .2s;
+}
+.recent-list-amount, .recent-list-desc, .recent-list-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.recent-list-profile{
+    flex: 10%;
+}
+.recent-list-profile{
+    width: 50px;
+    height: 60px;
+    background-color: #eeebf7;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+.recent-list-desc{
+    flex: 70%;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-left: 10px;
+    flex-direction: column;
+}
+.recent-list-amount{
+    flex: 20%;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+.recent-list-amount b{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: flex-end;
+}
+.home-recent-item div label{
+    color: grey;
+    font-size: .8rem;
+}
+.home-recent-item:hover{
+    box-shadow: 0px 0px 20px -10px grey;
+}
