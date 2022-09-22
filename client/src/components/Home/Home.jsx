@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState } from 'react'
 import { BiRupee } from 'react-icons/bi'
 import { IoFastFoodSharp } from 'react-icons/io5'
+import Header from '../Header/Header'
 import './Home.css'
 function Home() {
   return (
@@ -18,7 +20,7 @@ function Home() {
                 </div>
                 <label>Month</label>
                 <div className="home-month">
-                    <h4>09/2022</h4>
+                    <h4>Sep - 2022</h4>
                 </div>
             </div>
             <div className="home-recent">

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import { BiBell } from 'react-icons/bi'
 import './Header.css'
 function Header() {
