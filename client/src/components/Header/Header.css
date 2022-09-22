@@ -3,9 +3,11 @@
     display: flex;
     justify-content: center;
     height: 80px;
+    background-image: linear-gradient(to right, #fdf5ed , #eef2f3);
+    position: fixed;
 }
 .header-container{
-    width: 650px;
+    width: 750px;
     display: flex;
     justify-content: space-between;
 }
