@@ -3,6 +3,7 @@ import './Sidebar.css'
 import { HiCollection, HiHome,HiMenuAlt1,HiPlusCircle,HiUser } from "react-icons/hi";
 import { AiFillPieChart, AiFillSetting} from "react-icons/ai";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const select={
         home:false,
@@ -12,6 +13,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         chart:false,
         settings:false
     }
+    const navigate=useNavigate()
     const [selected, setSelected]=useState({...select, [selectedOption]:true})
   return (
     <div className="Sidebar" style={style2}>
@@ -23,33 +25,51 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
             <div className="side-list">
                 <div className="side-list-header">Menu</div>
                 <div className={`side-list-item ${selected.home && " selected"}`}
-                onClick={()=>setSelected({...select, home:true})}>
+                onClick={()=>{
+                    setSelected({...select, home:true})
+                    navigate('/')
+                    }}>
                     <HiHome className='side-list-icon'></HiHome>
                     <span>Home</span>
                 </div>
                 <div className={`side-list-item ${selected.user && " selected"}`}
-                onClick={()=>setSelected({...select, user:true})}>
+                onClick={()=>{
+                    setSelected({...select, user:true})
+                    navigate('/')
+                    }}>
                     <HiUser className='side-list-icon'></HiUser>
                     <span>User</span>
                 </div>
                 <div className={`side-list-item ${selected.list && " selected"}`}
-                onClick={()=>setSelected({...select, list:true})}>
+                onClick={()=>{
+                    setSelected({...select, list:true})
+                    navigate('/list')
+                    }}>
                     <HiCollection className='side-list-icon'></HiCollection>
-                    <span>Spent LIst</span>
+                    <span>Spent List</span>
                 </div>
                 <div className={`side-list-item ${selected.add && " selected"}`}
-                onClick={()=>setSelected({...select, add:true})}>
+                onClick={()=>{
+                    setSelected({...select, add:true})
+                    navigate('/')
+                    }}>
                     <HiPlusCircle className='side-list-icon'></HiPlusCircle>
                     <span>Add Expense</span>
                 </div>
                 <div className={`side-list-item ${selected.chart && " selected"}`}
-                onClick={()=>setSelected({...select, chart:true})}>
+                onClick={()=>{
+                    setSelected({...select, chart:true})
+                    navigate('/')
+                    }}>
                     <AiFillPieChart className='side-list-icon'></AiFillPieChart>
                     <span>Analysis</span>
                 </div>
                 <div className="side-list-header">General</div>
                 <div className={`side-list-item ${selected.settings && " selected"}`}
-                onClick={()=>setSelected({...select, settings:true})}>
+                onClick={()=>{
+                    setSelected({...select, settings:true})
+                    navigate('/')
+                    }}>
                     <AiFillSetting className='side-list-icon'></AiFillSetting>
                     <span>Settings</span>
                 </div>

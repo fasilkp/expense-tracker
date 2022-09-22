@@ -9,7 +9,8 @@
     position: fixed;
     left: 50%;
     top: -30px;
-    transform: translate(-50%, 50%) 
+    transform: translate(-50%, 50%);
+    z-index: 90;
 }
 .Navbar .nav-item{
     font-size: 1.3rem;

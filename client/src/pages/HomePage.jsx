@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar/Navbar'
 function HomePage() {
   return (
     <>
-        <Header selected='home'></Header>
+        <Header selected='home' heading={"Home"}></Header>
         <Navbar selected='home'></Navbar>
         <Home/>
     </>

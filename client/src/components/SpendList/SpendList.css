@@ -1,0 +1,103 @@
+.SpendList{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+.list-container{
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.list-container>div{
+    width: 100%;
+}
+.list-header{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.199);
+    position: sticky;
+    top: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to right, #fdf5ed , #eef2f3);
+    
+}
+.list-month-input{
+    width: 100px;
+    height: 45px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 10px;    
+    margin-left: 20px;
+    background-color: white;
+    color: var(--secondColor);
+    font-weight: 500;
+}
+.list-items{
+    padding: 10px 0px;
+}
+.list-items caption{
+    color: rgba(128, 128, 128, 0.514);
+    margin: 15px 0px;
+    font-size: .8rem;
+}
+.list-item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.list-logo{
+    width: 65px;
+    height: 65px;
+    background-color: #eeebf7;
+    color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 20px;
+}
+.list-desc, .list-amount-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 85%;
+}
+.list-desc{
+    width: 80%;
+    padding-left: 20px;
+}
+.list-amount-details{
+    width: 100px;
+    padding-right: 20px;
+    align-items: flex-end;
+}
+.list-desc span, .list-amount-details span{
+    font-size: .8rem;
+    color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+    .SpendList{
+        padding-top: 70px;
+    }
+    .list-container{
+        width: 100%;
+        padding: 0px 15px;
+    }
+    .list-header{
+        top: 55px;
+        padding-left: 15px;
+    }
+    .list-desc{
+        width: 60%;
+    }
+}

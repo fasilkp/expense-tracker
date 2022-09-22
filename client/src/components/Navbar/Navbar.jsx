@@ -4,7 +4,9 @@ import { HiCollection, HiHome,HiUser } from "react-icons/hi";
 import { AiOutlinePieChart, AiFillPieChart} from "react-icons/ai";
 import './Navbar.css'
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 function Navbar({selected}) {
+    const navigate=useNavigate()
     const click={
         home:false,
         list:false,
@@ -15,7 +17,10 @@ function Navbar({selected}) {
   return (
     <div className='Navbar'>
         <div className="nav-item nav-home" 
-        onClick={()=>setClicked({...click, home:true})}>
+        onClick={()=>{
+            setClicked({...click, home:true})
+            navigate('/')
+            }}>
             {
                 clicked.home ?
                 <HiHome className='navClicked'/> :
@@ -23,7 +28,10 @@ function Navbar({selected}) {
             }
         </div>
         <div className="nav-item nav-expense"
-        onClick={()=>setClicked({...click, list:true})}>
+        onClick={()=>{
+            setClicked({...click, list:true})
+            navigate('/list')
+            }}>
             {
                 clicked.list?
                 <HiCollection className='navClicked'/> :
