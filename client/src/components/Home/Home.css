@@ -43,7 +43,8 @@
 }
 .recent-head{
     margin: 20px 0px;
-    color: grey;
+    font-weight: 500;
+    color: rgba(128, 128, 128, 0.70);
 }
 .home-recent-item{
     width: 100%;

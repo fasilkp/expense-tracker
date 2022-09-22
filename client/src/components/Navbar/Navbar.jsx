@@ -4,14 +4,14 @@ import { HiCollection, HiHome,HiUser } from "react-icons/hi";
 import { AiOutlinePieChart, AiFillPieChart} from "react-icons/ai";
 import './Navbar.css'
 import { useState } from 'react';
-function Navbar() {
+function Navbar({selected}) {
     const click={
         home:false,
         list:false,
         chart:false,
         user:false
     }
-    const [clicked, setClicked]=useState(click)
+    const [clicked, setClicked]=useState({...click, [selected]:true})
   return (
     <div className='Navbar'>
         <div className="nav-item nav-home" 

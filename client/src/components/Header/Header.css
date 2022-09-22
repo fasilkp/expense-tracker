@@ -7,13 +7,16 @@
     position: fixed;
 }
 .header-container{
-    width: 750px;
+    width: 97%;
     display: flex;
     justify-content: space-between;
 }
 .header-item{
     display: flex;
     align-items: center;
+}
+.header-item:first-child{
+    cursor: pointer;
 }
 .header-item:first-child{
     font-weight: 550;
