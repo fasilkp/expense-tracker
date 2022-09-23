@@ -54,3 +54,16 @@
     background-color: var(--mainColor);
     color: white;
 }
+@media only screen and (max-width: 600px) {
+    .Login{
+        flex-direction: column;
+    }
+    .login-img{
+        flex: 60%;
+        max-height: 50vh;
+    }
+    .login-section{
+        flex: 40%;
+    }
+
+}
