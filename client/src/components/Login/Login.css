@@ -63,7 +63,10 @@
     }
     .login-img{
         flex: 60%;
-        max-height: 50vh;
+        max-height: 45vh;
+    }
+    .login-img img{
+        height: 90%;
     }
     .login-section{
         flex: 40%;

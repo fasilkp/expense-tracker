@@ -1,8 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
 import { BiRupee } from 'react-icons/bi'
-import { IoFastFoodSharp } from 'react-icons/io5'
-import Header from '../Header/Header'
+import ListComp from '../ListCompnent/ListCom'
 import './Home.css'
 function Home() {
   return (
@@ -24,85 +22,7 @@ function Home() {
                 </div>
             </div>
             <div className="home-recent">
-                <caption className='recent-head'>Recent</caption>
-                <div className="home-recent-item">
-                    <div className="recent-list-profile">
-                        <IoFastFoodSharp />
-                    </div>
-                    <div className="recent-list-desc">
-                        <b>Food</b>
-                        <label>Lunch</label>
-                    </div>
-                    <div className="recent-list-amount">
-                        <b><BiRupee/>72</b>
-                        <label>20/05/2022</label>
-                    </div>
-                </div>
-                <div className="home-recent-item">
-                    <div className="recent-list-profile">
-                        <IoFastFoodSharp />
-                    </div>
-                    <div className="recent-list-desc">
-                        <b>Food</b>
-                        <label>Lunch</label>
-                    </div>
-                    <div className="recent-list-amount">
-                        <b><BiRupee/>72</b>
-                        <label>20/05/2022</label>
-                    </div>
-                </div>
-                <div className="home-recent-item">
-                    <div className="recent-list-profile">
-                        <IoFastFoodSharp />
-                    </div>
-                    <div className="recent-list-desc">
-                        <b>Food</b>
-                        <label>Lunch</label>
-                    </div>
-                    <div className="recent-list-amount">
-                        <b><BiRupee/>72</b>
-                        <label>20/05/2022</label>
-                    </div>
-                </div>
-                <div className="home-recent-item">
-                    <div className="recent-list-profile">
-                        <IoFastFoodSharp />
-                    </div>
-                    <div className="recent-list-desc">
-                        <b>Food</b>
-                        <label>Lunch</label>
-                    </div>
-                    <div className="recent-list-amount">
-                        <b><BiRupee/>72</b>
-                        <label>20/05/2022</label>
-                    </div>
-                </div>
-                <div className="home-recent-item">
-                    <div className="recent-list-profile">
-                        <IoFastFoodSharp />
-                    </div>
-                    <div className="recent-list-desc">
-                        <b>Food</b>
-                        <label>Lunch</label>
-                    </div>
-                    <div className="recent-list-amount">
-                        <b><BiRupee/>72</b>
-                        <label>20/05/2022</label>
-                    </div>
-                </div>
-                <div className="home-recent-item">
-                    <div className="recent-list-profile">
-                        <IoFastFoodSharp />
-                    </div>
-                    <div className="recent-list-desc">
-                        <b>Food</b>
-                        <label>Lunch</label>
-                    </div>
-                    <div className="recent-list-amount">
-                        <b><BiRupee/>72</b>
-                        <label>20/05/2022</label>
-                    </div>
-                </div>
+                <ListComp/>
             </div>
         </div>
     </div>
