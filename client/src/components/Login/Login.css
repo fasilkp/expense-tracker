@@ -1,0 +1,56 @@
+.Login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.Login>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-img{
+    background-color: var(--mainColor);
+    flex: 70%;
+}
+.login-img img{
+    height: 75%;
+}
+.login-section{
+    flex: 30%;
+    background-color: white;
+}
+.login-container>div{
+    width: 320px;
+}
+.login-header{
+    margin: 50px 0px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: var(--mainColor);
+}
+.login-header h2{
+    max-width: 200px;
+}
+.login-input input, .login-btn button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: #eef2f3;
+    border-radius: 10px;
+}
+.login-input input{
+    padding-left: 10px;
+}
+.login-caption{
+    margin: 10px 0px;
+    font-size: .9rem;
+}
+.login-btn{
+    margin: 30px 0px;
+}
+.login-btn button{
+    background-color: var(--mainColor);
+    color: white;
+}

@@ -31,11 +31,11 @@
     padding-right: 30px;
 }
 .side-list-item{
-    height: 65px;
+    height: 60px;
     padding-left: 15px;
     font-size: 1rem;
-    font-weight: bold;
     display: flex;
+    font-weight: 560;
     align-items: center;
     color: rgba(128, 128, 128, 0.5);
     border-radius: 20px;
@@ -45,6 +45,7 @@
 }
 .side-list-item.selected{
     color: var(--thirdColor);
+    font-weight: 650;
     background-color: rgba(0, 0, 0, 0.05);
 }
 .side-list-item:hover{
