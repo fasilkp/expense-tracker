@@ -4,7 +4,7 @@ import Select from "react-select";
 import { HiCash, HiCollection, HiHome, HiUser } from "react-icons/hi";
 import { MdEmojiTransportation } from "react-icons/md";
 import { IoFastFood } from "react-icons/io5";
-import { BsCollectionPlayFill } from "react-icons/bs";
+import { BsFillCollectionPlayFill } from "react-icons/bs";
 
 function AddExpense({setShowAddExpense}) {
     // const customStyles = {
@@ -18,32 +18,32 @@ function AddExpense({setShowAddExpense}) {
         {
           value: "entertaintment",
           text: 'Entertaintment',
-          icon: <BsCollectionPlayFill/> 
-        },
-        {
-          value: "food",
-          text: 'Food',
-          icon: <IoFastFood/> 
+          icon: <BsFillCollectionPlayFill className="category-icon entertaintment"/> 
         },
         {
           value: "rent",
           text: 'Rent',
-          icon: <HiCash/> 
+          icon: <HiCash className="category-icon rent"/> 
+        },
+        {
+          value: "food",
+          text: 'Food',
+          icon: <IoFastFood className="category-icon food"/> 
         },
         {
           value: "transport",
           text: 'Transport',
-          icon: <MdEmojiTransportation/> 
+          icon: <MdEmojiTransportation className="category-icon transport"/> 
         },
         {
           value: "emi",
           text: 'EMI',
-          icon: <HiCash/> 
+          icon: <HiCash className="category-icon emi"/> 
         },
         {
           value: "other",
           text: 'Other',
-          icon: <HiCollection/> 
+          icon: <HiCollection className="category-icon other"/> 
         },
     ]
   return (
@@ -61,7 +61,7 @@ function AddExpense({setShowAddExpense}) {
             isSearchable={false}
             className="add-select-box"
             readOnly={true}
-            placeholder="Select Option"
+            placeholder="Select Category"
             options={data}
             getOptionLabel={(e) => (
               <div style={{ display: "flex", alignItems: "center" }}>

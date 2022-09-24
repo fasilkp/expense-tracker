@@ -68,6 +68,26 @@
     color: white;
     
 }
+.category-icon{
+    font-size: 1rem;
+    margin-right: 10px;
+}
+.category-icon.food{
+    color: tomato;
+}
+.category-icon.entertaintment{
+    color: red;
+    font-size: .9rem;
+}
+.category-icon.rent{
+    color: green;
+}
+.category-icon.emi{
+    color: blue;
+}
+.category-icon.transport{
+    color: brown;
+}
 @keyframes containerAnime {
     0%{
         scale: 1;
