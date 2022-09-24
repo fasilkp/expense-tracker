@@ -1,9 +1,12 @@
 import React from "react";
 import "./AddExpense.css";
 import Select from "react-select";
-import { HiCollection, HiHome, HiUser } from "react-icons/hi";
+import { HiCash, HiCollection, HiHome, HiUser } from "react-icons/hi";
+import { MdEmojiTransportation } from "react-icons/md";
+import { IoFastFood } from "react-icons/io5";
+import { BsCollectionPlayFill } from "react-icons/bs";
 
-function AddExpense() {
+function AddExpense({setShowAddExpense}) {
     // const customStyles = {
     //     control: base => ({
     //       ...base,
@@ -15,27 +18,27 @@ function AddExpense() {
         {
           value: "entertaintment",
           text: 'Entertaintment',
-          icon: <HiUser/> 
+          icon: <BsCollectionPlayFill/> 
         },
         {
           value: "food",
           text: 'Food',
-          icon: <HiHome/> 
+          icon: <IoFastFood/> 
         },
         {
           value: "rent",
           text: 'Rent',
-          icon: <HiCollection/> 
+          icon: <HiCash/> 
         },
         {
           value: "transport",
           text: 'Transport',
-          icon: <HiCollection/> 
+          icon: <MdEmojiTransportation/> 
         },
         {
           value: "emi",
           text: 'EMI',
-          icon: <HiCollection/> 
+          icon: <HiCash/> 
         },
         {
           value: "other",
@@ -77,7 +80,7 @@ function AddExpense() {
           <input type="text" placeholder="Enter description" />
         </div>
         <div className="add-btn">
-          <button>Close</button>
+          <button onClick={()=>setShowAddExpense(false)}>Close</button>
           <button>Add</button>
         </div>
       </div>

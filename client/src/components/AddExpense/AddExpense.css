@@ -10,13 +10,14 @@
     top: 0px;
 }
 .add-container{
-    width: 400px;
+    width: 500px;
     background-color: #fff;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 20px;
     border-radius: 20px;
+    animation:containerAnime .5s;
 }
 .add-container>div{
     width: 100%;
@@ -66,5 +67,16 @@
     background-color: var(--mainColor);
     color: white;
     
+}
+@keyframes containerAnime {
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 1.05;
+    }
+    100%{
+        scale: 1;
+    }
 }
 

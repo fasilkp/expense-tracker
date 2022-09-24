@@ -5,8 +5,10 @@ import { AiOutlinePieChart, AiFillPieChart} from "react-icons/ai";
 import './Navbar.css'
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
+import AddExpense from '../AddExpense/AddExpense';
 function Navbar({selected}) {
     const navigate=useNavigate()
+    const [showAddExpense, setShowAddExpense]=useState(false)
     const click={
         home:false,
         list:false,
@@ -15,7 +17,8 @@ function Navbar({selected}) {
     }
     const [clicked, setClicked]=useState({...click, [selected]:true})
   return (
-    <div className='Navbar'>
+    <>
+         <div className='Navbar'>
         <div className="nav-item nav-home" 
         onClick={()=>{
             setClicked({...click, home:true})
@@ -38,7 +41,8 @@ function Navbar({selected}) {
                 <BiCollection />
             }
         </div>
-        <div className="nav-item nav-add-expense">
+        <div className="nav-item nav-add-expense"
+        onClick={()=>setShowAddExpense(true)} >
             <BiBookAdd></BiBookAdd>
         </div>
         <div className="nav-item nav-graph"
@@ -58,6 +62,9 @@ function Navbar({selected}) {
             }
         </div>
     </div>
+    {showAddExpense && <AddExpense setShowAddExpense={setShowAddExpense}/>}
+    </>
+   
   )
 }
 
