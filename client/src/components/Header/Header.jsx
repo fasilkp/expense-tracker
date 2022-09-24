@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BiBell } from 'react-icons/bi'
 import { HiMenuAlt1 } from 'react-icons/hi'
+import AddExpense from '../AddExpense/AddExpense'
 import Sidebar from '../Sidebar/Sidebar'
 import './Header.css'
 function Header({selected, heading}) {
@@ -22,6 +23,8 @@ function Header({selected, heading}) {
       <Sidebar selectedOption={selected} setSidebar={setSidebar} 
       sidebar={sidebar} style={{left:"-400px"}} style2={{visibility:"hidden"}}/>
     }
+    
+    <AddExpense/>
     </>
   )
 }
