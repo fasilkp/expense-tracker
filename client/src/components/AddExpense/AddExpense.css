@@ -8,6 +8,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
+    z-index: 150;
 }
 .add-container{
     width: 500px;
@@ -68,25 +69,40 @@
     color: white;
     
 }
+.add-btn button:last-child:hover{
+    background-color:   rgb(223, 223, 223);
+    color: var(--mainColor);
+    
+}
+.add-btn button:first-child:hover{
+    background-color:  rgb(223, 223, 223);
+    color: var(--mainColor);
+    
+}
 .category-icon{
     font-size: 1rem;
     margin-right: 10px;
 }
 .category-icon.food{
-    color: tomato;
+    color: rgb(255, 115, 0);
 }
 .category-icon.entertaintment{
     color: red;
-    font-size: .9rem;
 }
 .category-icon.rent{
-    color: green;
+    color: rgb(0, 128, 57);
 }
 .category-icon.emi{
-    color: blue;
+    color: rgb(100, 128, 1);
 }
 .category-icon.transport{
     color: brown;
+}
+.category-icon.other{
+    color: #303030;
+}
+.category-icon.shopping{
+    color: rgb(0, 132, 255);
 }
 @keyframes containerAnime {
     0%{

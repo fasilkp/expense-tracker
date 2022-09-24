@@ -1,10 +1,12 @@
 import React from "react";
 import "./AddExpense.css";
 import Select from "react-select";
-import { HiCash, HiCollection, HiHome, HiUser } from "react-icons/hi";
-import { MdEmojiTransportation } from "react-icons/md";
+import { HiCollection } from "react-icons/hi";
 import { IoFastFood } from "react-icons/io5";
-import { BsFillCollectionPlayFill } from "react-icons/bs";
+import { BsCashCoin} from "react-icons/bs";
+import { GiPopcorn } from "react-icons/gi";
+import { FaCartArrowDown,FaRegCalendarAlt } from "react-icons/fa";
+import { RiTaxiFill } from "react-icons/ri";
 
 function AddExpense({setShowAddExpense}) {
     // const customStyles = {
@@ -16,14 +18,9 @@ function AddExpense({setShowAddExpense}) {
     //   };
     const data = [
         {
-          value: "entertaintment",
-          text: 'Entertaintment',
-          icon: <BsFillCollectionPlayFill className="category-icon entertaintment"/> 
-        },
-        {
           value: "rent",
           text: 'Rent',
-          icon: <HiCash className="category-icon rent"/> 
+          icon: <BsCashCoin className="category-icon rent"/> 
         },
         {
           value: "food",
@@ -31,20 +28,30 @@ function AddExpense({setShowAddExpense}) {
           icon: <IoFastFood className="category-icon food"/> 
         },
         {
+          value: "entertaintment",
+          text: 'Entertainment',
+          icon: <GiPopcorn className="category-icon entertainment"/> 
+        },
+        {
           value: "transport",
           text: 'Transport',
-          icon: <MdEmojiTransportation className="category-icon transport"/> 
+          icon: <RiTaxiFill className="category-icon transport"/> 
         },
         {
           value: "emi",
           text: 'EMI',
-          icon: <HiCash className="category-icon emi"/> 
+          icon: <FaRegCalendarAlt className="category-icon emi"/> 
+        },
+        {
+          value: "shopping",
+          text: 'Shopping',
+          icon: <FaCartArrowDown className="category-icon shopping"/> 
         },
         {
           value: "other",
           text: 'Other',
           icon: <HiCollection className="category-icon other"/> 
-        },
+        }
     ]
   return (
     <div className="AddExpense">
