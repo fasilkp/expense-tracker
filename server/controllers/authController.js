@@ -1,20 +1,20 @@
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
+import UserModel from '../models/UserModel.js';
 var salt = bcrypt.genSaltSync(10);
 
 export const registerUser = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
+//   try {
+    const { name, email, password, amountLimit } = req.body;
     const hashPassword = bcrypt.hashSync(password, salt);
-    const userExist = await UserModel.findOne({ userName });
+    const userExist = await UserModel.findOne({ email });
     if (userExist)
       return res.json({ register: false, message: "userName Already Taken" });
     const user = new UserModel({
-      userName,
+      amountLimit,
       name,
       email,
-      password: hashPassword,
-      image: "defaultImage.jpg",
+      password: hashPassword
     });
     user.save((err) => {
       if (err) return res.json({ register: false, message: "save error " });
@@ -39,9 +39,9 @@ export const registerUser = async (req, res) => {
         user: user._id,
       });
     });
-  } catch (err) {
-    res.json({ register: false, message: "catch err" });
-  }
+//   } catch (err) {
+//     res.json({ register: false, message: "catch err" });
+//   }
 };
 
 export const loginUser = async (req, res) => {

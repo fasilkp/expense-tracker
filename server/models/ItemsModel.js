@@ -1,24 +1,23 @@
 import mongoose from "mongoose"
 
-const UserSchema = new mongoose.Schema({
-    name:{
+const ItemSchema = new mongoose.Schema({
+    category:{
         type: String,
         required:true
     },
-    email:{
+    description:{
         type: String,
         required:true
     },
-    password:{
+    icon:{
         type: String,
         required:true
     },
-    monthlyLimit:{
-        type:Number,
-        default:5000
+    amount:{
+        type:Number
     },
     createdAt: { type: Date, default: Date.now },
 })
 
-const UserModel=mongoose.model("Users", UserSchema)
-export default UserModel
+const ItemModel=mongoose.model("items", ItemSchema)
+export default ItemModel
