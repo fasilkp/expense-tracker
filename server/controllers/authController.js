@@ -81,3 +81,21 @@ export const loginUser = async (req, res) => {
       })
       .json({ login: true, message: "logged in successfully", user: user._id });
   };
+  export const checkLoggedIn = async (req, res) => {
+    try {
+      const token = req.cookies.token;
+      if (!token) return res.json({ loggedIn: false, error: "no token" });
+  
+      const verifiedJWT = jwt.verify(token, process.env.JWT_SECRET_KEY);
+      const user = await UserModel.findOne(
+        { _id: verifiedJWT.id },
+        { password: 0 }
+      );
+      if(!user){
+        return res.json({ loggedIn: false, error: "no token" });
+      }
+      return res.json({ loggedIn: true, user });
+    } catch (err) {
+      res.json({ loggedIn: false, error: err });
+    }
+  };

@@ -9,6 +9,10 @@ const ItemSchema = new mongoose.Schema({
         type: String,
         required:true
     },
+    uid:{
+        type: String,
+        required:true
+    },
     amount:{
         type:Number
     },

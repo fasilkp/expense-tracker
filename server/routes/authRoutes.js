@@ -1,5 +1,5 @@
 import express from 'express'
-import {loginUser, registerUser} from '../controllers/authController.js'
+import {checkLoggedIn, loginUser, registerUser} from '../controllers/authController.js'
 
 const router=express.Router()
 
@@ -8,6 +8,7 @@ router.get("/check", (req, res)=>{
 });
 router.post("/register", registerUser);
 router.post("/login", loginUser);
+router.get("/check-logged-in", checkLoggedIn);
 
 
 

@@ -5,6 +5,9 @@ import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import ListPage from './pages/ListPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import axios from 'axios'
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'https://crowdlybackend.herokuapp.com/api';
 function App() {
   return (
     <Router>
