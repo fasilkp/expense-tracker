@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/authRoutes.js'
+import listRoutes from './routes/listRoutes.js'
 import connectDB from './config/ConnectDB.js';
 
 const app = express();
@@ -22,6 +23,7 @@ app.get('/', (req, res)=>{
 })
 // routes
 app.use("/api/auth", authRoutes);
+app.use("/api/list", listRoutes);
 
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));
