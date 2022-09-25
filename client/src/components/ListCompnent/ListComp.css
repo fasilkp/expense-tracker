@@ -56,14 +56,22 @@
     font-size: .8rem;
     color: grey;
 }
+.list-item-amount{
+    font-size: .85rem;
+    display: flex;
+    align-items: flex-start;
+}
+.list-item-amount b{
+    font-size: 1rem;
+}
 .list-category-icon{
     font-size: 1.6rem;
 }
 .list-category-icon.food{
     color: rgb(255, 115, 0);
 }
-.list-category-icon.entertaintment{
-    color: red;
+.list-category-icon.entertainment{
+    color: rgb(1, 9, 107);
 }
 .list-category-icon.rent{
     color: rgb(0, 128, 57);
