@@ -10,9 +10,7 @@ function Register() {
     const [monthlyLimit, setMonthlyLimit] = useState(0);
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (
-            name !== "" || email !== "" || password.length > 6 || monthlyLimit !== 0
-        ) {
+        if ( name !== "" || email !== "" || password.length > 6 || monthlyLimit !== 0 ) {
 
             const user = await axios.post("/auth/register", {
                 name,

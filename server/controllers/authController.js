@@ -5,13 +5,13 @@ var salt = bcrypt.genSaltSync(10);
 
 export const registerUser = async (req, res) => {
   //   try {
-  const { name, email, password, amountLimit } = req.body;
+  const { name, email, password, monthlyLimit } = req.body;
   const hashPassword = bcrypt.hashSync(password, salt);
   const userExist = await UserModel.findOne({ email });
   if (userExist)
     return res.json({ register: false, message: "userName Already Taken" });
   const user = new UserModel({
-    amountLimit,
+    monthlyLimit,
     name,
     email,
     password: hashPassword,

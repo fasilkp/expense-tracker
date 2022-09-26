@@ -14,8 +14,7 @@ const UserSchema = new mongoose.Schema({
         required:true
     },
     monthlyLimit:{
-        type:Number,
-        default:5000
+        type:Number
     },
     createdAt: { type: Date, default: Date.now },
 })

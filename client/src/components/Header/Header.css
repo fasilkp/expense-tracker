@@ -24,6 +24,7 @@
 @media only screen and (max-width: 600px) {
     .header-container{
         padding: 0px 20px ;
+        height: 65px;
     }
     .Header{
         height: 60px;
