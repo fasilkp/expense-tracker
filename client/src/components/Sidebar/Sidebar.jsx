@@ -4,6 +4,7 @@ import { HiCollection, HiHome,HiMenuAlt1,HiPlusCircle,HiUser } from "react-icons
 import { AiFillPieChart, AiFillSetting} from "react-icons/ai";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IoLogOut } from 'react-icons/io5';
 function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const select={
         home:false,
@@ -72,6 +73,13 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                     }}>
                     <AiFillSetting className='side-list-icon'></AiFillSetting>
                     <span>Settings</span>
+                </div>
+                <div className={`side-list-item logout`}
+                onClick={()=>{
+                    navigate('/')
+                    }}>
+                    <span>Logout</span>
+                    <IoLogOut className='side-list-icon'></IoLogOut>
                 </div>
             </div>
         </div>

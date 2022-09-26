@@ -56,6 +56,20 @@
 .side-list-item.selected:hover{
     opacity: 100%;
 }
+.side-list-item.logout{
+    color: var(--firstColor);
+    position: absolute;
+    bottom: 10px;
+    width: 260px;
+    display: flex;
+    padding-left: 0px;
+    padding-right: 15px;
+    justify-content: space-between;
+}
+.side-list-item.logout:hover{
+    background-color: rgba(252, 29, 0, 1);
+    color: white;
+}
 .side-list-icon{
     font-size: 1.5rem;
 }
