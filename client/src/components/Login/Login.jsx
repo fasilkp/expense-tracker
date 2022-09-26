@@ -3,6 +3,7 @@ import './Login.css'
 import LoginImage from '../../images/login-image.png'
 import { HiAnnotation } from 'react-icons/hi'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 function Login() {
     const[email, setEmail]=useState("")
     const[password, setPassword]=useState("")
@@ -19,7 +20,7 @@ function Login() {
             <img src={LoginImage} alt="" />
         </div>
         <div className="login-section">
-            <div className="login-container">
+            <form className="login-container">
                 <div className="login-header">
                     <h2>Login To Expense Tracker</h2>
                 </div>
@@ -38,7 +39,8 @@ function Login() {
                 <div className="login-btn">
                     <button>Login</button>
                 </div>
-            </div>
+            </form>
+            <Link to='/register' className="redirect-login">Don't have account? Regitser?</Link>
         </div>
     </div>
   )

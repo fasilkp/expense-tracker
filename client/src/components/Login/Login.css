@@ -18,6 +18,12 @@
 .login-section{
     flex: 30%;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.redirect-login{
+    text-decoration: none;
+    color: var(--thirdColor);
 }
 .login-container>div{
     width: 320px;
@@ -56,6 +62,9 @@
 .login-btn button{
     background-color: var(--mainColor);
     color: white;
+}
+.login-btn button:disabled{
+    opacity: 75%;
 }
 @media only screen and (max-width: 600px) {
     .Login{
