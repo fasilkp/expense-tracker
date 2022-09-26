@@ -5,6 +5,9 @@ import { AiFillPieChart, AiFillSetting} from "react-icons/ai";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoLogOut } from 'react-icons/io5';
+import axios from 'axios';
+import { useContext } from 'react';
+import AuthContext from '../../context/AuthContext';
 function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const select={
         home:false,
@@ -16,6 +19,14 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     }
     const navigate=useNavigate()
     const [selected, setSelected]=useState({...select, [selectedOption]:true})
+    const {updateLogin}=useContext(AuthContext)
+    const handleLogout=async ()=>{
+        if(window.confirm("Are You Sure ? Logout")){
+            await axios.post('/auth/logout');
+            updateLogin();
+            navigate("/login")
+        }
+      }
   return (
     <div className="Sidebar" style={style2}>
         <div className="side-container" style={style}>
@@ -75,9 +86,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                     <span>Settings</span>
                 </div>
                 <div className={`side-list-item logout`}
-                onClick={()=>{
-                    navigate('/')
-                    }}>
+                onClick={handleLogout}>
                     <span>Logout</span>
                     <IoLogOut className='side-list-icon'></IoLogOut>
                 </div>

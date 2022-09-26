@@ -118,4 +118,7 @@
     .home-amount.first h1{
         font-size: 1.75rem;
     }
+    .home-banner{
+        padding: 30px 20px 20px 20px;
+    }
   }
