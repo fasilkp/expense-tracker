@@ -5,10 +5,12 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Axios from 'axios'
 import AuthContext from '../../context/AuthContext'
+import Loader from '../Loader/Loader'
 function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const {updateLogin} = useContext(AuthContext)
+    const [load, setLoad]=useState(false)
     const navigate=useNavigate();
     const handleEmail = e => {
         setEmail(e.target.value)
@@ -18,6 +20,7 @@ function Login() {
     }
     const handleSubmit = async e => {
         e.preventDefault();
+        setLoad(true)
         if (email !== "" || password.length > 6) {
             const user = await Axios.post("/auth/login", { email, password });
             console.log(user.data.message);
@@ -29,6 +32,7 @@ function Login() {
                 alert(user.data.message);
             }
         }
+        setLoad(false)
     }
     return (
         <div className="Login">
@@ -58,6 +62,9 @@ function Login() {
                 </form>
                 <Link to='/register' className="redirect-login">Don't have account? Regitser?</Link>
             </div>
+            {
+                load && <Loader/>
+            }
         </div>
     )
 }

@@ -3,13 +3,16 @@ import "../Login/Login.css";
 import LoginImage from "../../images/login-image.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 function Register() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [monthlyLimit, setMonthlyLimit] = useState(0);
+    const [load, setLoad]=useState(false)
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoad(true)
         if ( name !== "" || email !== "" || password.length > 6 || monthlyLimit !== 0 ) {
 
             const user = await axios.post("/auth/register", {
@@ -26,6 +29,7 @@ function Register() {
         } else {
             console.log("not working");
         }
+        setLoad(false)
     };
     const handleInput = (e, input) => {
         switch (input) {
@@ -112,6 +116,7 @@ function Register() {
                     Already have account? Login
                 </Link>
             </div>
+            
         </div>
     );
 }
