@@ -6,31 +6,6 @@ import { IoFastFoodSharp } from 'react-icons/io5'
 import ListComp from '../ListCompnent/ListCom'
 import './SpendList.css'
 function SpendList() {
-  // const data=[
-  //   {name: "fasil", date:2},
-  //   {name: "fasil", date:2},
-  //   {name: "shijas", date:3},
-  //   {name: "shijas", date:3},
-  //   {name: "shail", date:4}
-  // ]
-  
-  // const [list, setList]=useState([])
-  // useEffect(()=>{
-  //   let date=0;
-  //   let newData=[]
-  //   data.forEach(item=>{
-  //     if(item.date!=date){
-  //       newData.push({newDate:true, ...item})
-  //       date=item.date;
-  //     }
-  //     else{
-  //       newData.push(item)
-  //     }
-  //   })
-  //   setList(newData)
-  // },[])
-  // console.log(list)
-  // const [state, setState]=useState(0)
   
   return (
     <div className="SpendList">
