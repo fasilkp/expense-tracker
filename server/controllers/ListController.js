@@ -28,3 +28,12 @@ export const getItems = async (req, res) => {
     return res .status(500).json({ err });
   }
 };
+export const getItemsWithLimit = async (req, res) => {
+  const { uid } = req.body;
+  try{
+    const allItems = await ItemModel.find({uid}).sort({ createdAt: -1 }).limit(10);
+    return res.status(201) .json({ err: false, allItems });
+  }catch(err){
+    return res .status(500).json({ err });
+  }
+};
