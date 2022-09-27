@@ -7,7 +7,7 @@ import { RiTaxiFill} from 'react-icons/ri'
 import './ListComp.css'
 import { BsCashCoin } from 'react-icons/bs'
 import ListItem from './ListItem'
-function ListComp() {
+function ListComp({list}) {
     var Components={
         entertainment: {
             icon:GiPopcorn,
@@ -43,16 +43,27 @@ function ListComp() {
         <div className="list-container">
             
             <div className="list-items">
-                <caption>Today</caption>
-                <ListItem 
-                IconComponent={Components['entertainment'].icon}
-                className={Components['entertainment'].className}
-                amount={534}
-                desc={"Movie"}
-                date={"22/09/2022"}
-                category={"Entertainment"}
-                />
-                <ListItem 
+                {
+                    list.map((item, index)=>{
+                        return <>
+                        {item.newDate && <caption>
+                            {item.date}
+                        </caption>}
+                        <ListItem 
+                        key={index}
+                        IconComponent={Components[item.category].icon}
+                        className={Components[item.category].className}
+                        amount={item.amount}
+                        desc={item.description}
+                        date={item.createdAt}
+                        category={item.category}
+                        />
+                        </> 
+                    })
+                    
+                }
+
+                {/* <ListItem 
                 IconComponent={Components['food'].icon}
                 className={Components['food'].className}
                 amount={534}
@@ -101,7 +112,7 @@ function ListComp() {
                 desc={"Movie"}
                 date={"22/09/2022"}
                 category={"Other"}
-                />
+                /> */}
             </div>
         </div>
   )

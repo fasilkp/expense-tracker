@@ -1,9 +1,11 @@
 import React from 'react'
 import { BiRupee } from 'react-icons/bi'
 import './ListComp.css'
+import {timeSince} from '../../actions/timeSince'
 
-function ListItem({IconComponent, className, category, desc, date, amount}) 
+function ListItem({IconComponent, className, category, desc,date, amount}) 
 {
+    const uploadTime=new Date(date)
     return (
         <>
             <div className="list-item">
@@ -17,7 +19,9 @@ function ListItem({IconComponent, className, category, desc, date, amount})
                         <div className="list-amount-details">
 
                             <div className="list-item-amount"><BiRupee/> <b>{amount}</b></div>
-                            <span className="list-item-date">{date}</span>
+                            <span className="list-item-date">{
+                            timeSince(uploadTime)+" ago"
+                            }</span>
                         </div>
             </div>
         </>

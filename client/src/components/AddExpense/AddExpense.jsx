@@ -70,8 +70,8 @@ function AddExpense({setShowAddExpense}) {
           })
           if(result.data.err) alert("add item failed");
           else {
-            console.log(result.data.item)
             setShowAddExpense(false)
+            window.location.href="/"
           }
           setLoad({...load, submit:false})
         }
