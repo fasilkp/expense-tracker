@@ -17,15 +17,18 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         chart:false,
         settings:false
     }
+    const [load, setload]=useState(false)
     const navigate=useNavigate()
     const [selected, setSelected]=useState({...select, [selectedOption]:true})
     const {updateLogin}=useContext(AuthContext)
     const handleLogout=async ()=>{
+        setload(true)
         if(window.confirm("Are You Sure ? Logout")){
             await axios.post('/auth/logout');
             updateLogin();
             navigate("/login")
         }
+        setload(false)
       }
   return (
     <div className="Sidebar" style={style2}>
