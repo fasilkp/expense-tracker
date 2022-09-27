@@ -102,15 +102,15 @@ function AddExpense({setShowAddExpense}) {
             )}
           />
         </div>
-        <div className="add-label">Amount</div>
-        <div className="add-input">
-          <input type="number" placeholder="Enter Amount"
-          onChange={(e)=>setAmount(e.target.value)} />
-        </div>
         <div className="add-label">Description</div>
         <div className="add-input">
           <input type="text" placeholder="Enter description"
           onChange={(e)=>setDescription(e.target.value)} />
+        </div>
+        <div className="add-label">Amount</div>
+        <div className="add-input">
+          <input type="number" placeholder="Enter Amount"
+          onChange={(e)=>setAmount(e.target.value)} />
         </div>
         <div className="add-btn">
           <button onClick={()=>setShowAddExpense(false)}>Close</button>
