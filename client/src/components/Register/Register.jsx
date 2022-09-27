@@ -116,7 +116,9 @@ function Register() {
                     Already have account? Login
                 </Link>
             </div>
-            
+            {
+                load && <Loader/>
+            }
         </div>
     );
 }
