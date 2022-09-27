@@ -1,3 +1,5 @@
+import { toMonthWords } from "./toMonthWords";
+
 export function toDateFormat(date) {
   let curDate = new Date();
   if (
@@ -14,5 +16,5 @@ export function toDateFormat(date) {
   ) {
     return "Yesterday";
   }
-  return date.getDate() + " - " + date.getMonth() + " - " + date.getFullYear();
+  return date.getDate() + " - " + toMonthWords(date.getMonth()) + " - " + date.getFullYear();
 }

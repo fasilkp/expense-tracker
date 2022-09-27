@@ -16,6 +16,10 @@
     display: flex;
     align-items: center;
     background-image: linear-gradient(to right, #faf4ed , #eef2f3);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 30px;
     
 }
 .list-month-input{

@@ -20,7 +20,7 @@ function ListItem({IconComponent, className, category, desc,date, amount})
 
                             <div className="list-item-amount"><BiRupee/> <b>{amount}</b></div>
                             <span className="list-item-date">{
-                            timeSince(uploadTime)+" ago"
+                            timeSince(uploadTime)
                             }</span>
                         </div>
             </div>

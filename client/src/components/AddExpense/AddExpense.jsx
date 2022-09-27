@@ -71,7 +71,7 @@ function AddExpense({setShowAddExpense}) {
           if(result.data.err) alert("add item failed");
           else {
             setShowAddExpense(false)
-            window.location.href="/"
+            window.location.reload()
           }
           setLoad({...load, submit:false})
         }

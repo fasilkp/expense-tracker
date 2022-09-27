@@ -17,11 +17,14 @@ export function timeSince(date) {
     // }
     var interval = seconds / 3600;
     if (interval > 1) {
-      return Math.floor(interval) + " hours";
+      if(Math.floor(interval)<=24){
+        return Math.floor(interval) + " hours ago";
+      }
+      return date.getDate()+" - "+(date.getMonth()+1)+" - "+date.getFullYear();
     }
     interval = seconds / 60;
     if (interval > 1) {
-      return Math.floor(interval) + " minutes";
+      return Math.floor(interval) + " minutes ago";
     }
-    return Math.floor(seconds) + " seconds";
+    return Math.floor(seconds) + " seconds ago";
   }
