@@ -7,10 +7,12 @@ import { BiRupee } from "react-icons/bi";
 import AuthContext from "../../context/AuthContext";
 import ListComp from "../ListCompnent/ListCom";
 import { toDateFormat } from "../../actions/toDateFormat";
+import { toMonthWords } from "../../actions/toMonthWords";
 import "./Home.css";
 function Home() {
     const { user } = useContext(AuthContext);
     const [list, setList] = useState([]);
+    const currentDate=new Date()
     const [totalAmount, setTotalAmount]=useState(0)
     useEffect(() => {
         async function fetchData() {
@@ -61,7 +63,7 @@ function Home() {
                     </div>
                     <label>Month</label>
                     <div className="home-month">
-                        <h3> sep - 2022</h3>
+                        <h3> {toMonthWords(currentDate.getMonth())+" - "+currentDate.getFullYear()}</h3>
                     </div>
                 </div>
                 <div className="home-recent">

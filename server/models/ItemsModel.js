@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import { toMonthWords } from "../actions/toMonthWords.js"
 
 const ItemSchema = new mongoose.Schema({
     category:{
@@ -15,6 +16,10 @@ const ItemSchema = new mongoose.Schema({
     },
     amount:{
         type:Number
+    },
+    month:{
+        type:String,
+        default:toMonthWords(new Date().getMonth())+new Date().getFullYear()
     },
     createdAt: { type: Date, default: Date.now },
 })
