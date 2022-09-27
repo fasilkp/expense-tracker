@@ -16,6 +16,8 @@
     margin: 15px 0px;
     font-size: .8rem;
     width: 80px;
+    display: flex;
+    justify-content: flex-start;
 }
 .list-item{
     width: 100%;

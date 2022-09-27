@@ -26,8 +26,8 @@ function Home() {
                 if(index==0){
                      newList.push({ ...data.allItems[0], newDate: true, date:toDateFormat(prevDate) });
                 }
-                else if (date.getDate() != prevDate.getDate() &&
-                        date.getMonth() != prevDate.getMonth() &&
+                else if (date.getDate() != prevDate.getDate() ||
+                        date.getMonth() != prevDate.getMonth() ||
                         date.getFullYear() != prevDate.getFullYear() ) {
                             prevDate=date;
                             newList.push({...item, newDate:true, date:toDateFormat(date)})

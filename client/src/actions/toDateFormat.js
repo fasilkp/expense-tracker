@@ -1,3 +1,18 @@
-export function toDateFormat(date){
-    return date.getDate()+" - "+date.getMonth()+" - "+date.getFullYear()
+export function toDateFormat(date) {
+  let curDate = new Date();
+  if (
+    curDate.getDate() == date.getDate() &&
+    curDate.getMonth() == date.getMonth() &&
+    curDate.getFullYear() == date.getFullYear()
+  ) {
+    return "Today";
+  }
+  if (
+    curDate.getDate()-1 == date.getDate() &&
+    curDate.getMonth() == date.getMonth() &&
+    curDate.getFullYear() == date.getFullYear()
+  ) {
+    return "Yesterday";
+  }
+  return date.getDate() + " - " + date.getMonth() + " - " + date.getFullYear();
 }
