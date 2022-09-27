@@ -115,4 +115,9 @@
         scale: 1;
     }
 }
+@media only screen and (max-width: 600px) {
+    .add-container{
+        width: 380px;
+    }
 
+}

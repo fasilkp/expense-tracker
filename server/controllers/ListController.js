@@ -13,9 +13,9 @@ export const AddItem = async (req, res) => {
     if (err)
       return res
         .status(500)
-        .json({ success: false, message: "list add   failed", error: err });
+        .json({ err: true, message: "list add   failed", error: err });
   });
   return res
     .status(201)
-    .json({ success: true, message: "list add successfull", item:newItem });
+    .json({ err: false, message: "list add successfull", item:newItem });
 };

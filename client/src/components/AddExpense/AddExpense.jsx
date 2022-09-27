@@ -7,17 +7,21 @@ import { BsCashCoin} from "react-icons/bs";
 import { GiPopcorn } from "react-icons/gi";
 import { FaCartArrowDown,FaRegCalendarAlt } from "react-icons/fa";
 import { RiTaxiFill } from "react-icons/ri";
+import { useState } from "react";
+import axios from "axios";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import Loader from '../Loader/Loader'
 
 function AddExpense({setShowAddExpense}) {
-    // const customStyles = {
-    //     control: base => ({
-    //       ...base,
-    //       height: 50,
-    //       minHeight: 50
-    //     })
-    //   };
-    const data = [
-        {
+  const {user}=useContext(AuthContext)
+  const [load, setLoad]=useState({
+    submit:false,
+  })
+  const navigate=useNavigate()
+  const data = [
+    {
           value: "rent",
           text: 'Rent',
           icon: <BsCashCoin className="category-icon rent"/> 
@@ -28,7 +32,7 @@ function AddExpense({setShowAddExpense}) {
           icon: <IoFastFood className="category-icon food"/> 
         },
         {
-          value: "entertaintment",
+          value: "entertainment",
           text: 'Entertainment',
           icon: <GiPopcorn className="category-icon entertainment"/> 
         },
@@ -52,10 +56,29 @@ function AddExpense({setShowAddExpense}) {
           text: 'Other',
           icon: <HiCollection className="category-icon other"/> 
         }
-    ]
+      ]
+      const [category, setCategory]=useState(null)
+      const [amount, setAmount]=useState(0)
+      const [description, setDescription]=useState("")
+      const handleCategory=(e)=>setCategory(e.target.value)
+      const handleSubmit=async(e)=>{
+        e.preventDefault();
+        setLoad({...load, submit:true})
+        if(category!="" && description!="" && amount>0){
+          const result=await axios.post('/list/add-item',{
+            amount, description, category:category.value, uid:user._id
+          })
+          if(result.data.err) alert("add item failed");
+          else {
+            console.log(result.data.item)
+            setShowAddExpense(false)
+          }
+          setLoad({...load, submit:false})
+        }
+      }
   return (
     <div className="AddExpense">
-      <div className="add-container">
+      <form className="add-container" onSubmit={handleSubmit}>
         <div className="add-header">
           <h2>Add Expense</h2>
         </div>
@@ -64,7 +87,8 @@ function AddExpense({setShowAddExpense}) {
         </div>
         <div className="add-input">
         <Select
-            // styles={customStyles}
+            value={category}
+            onChange={setCategory}
             isSearchable={false}
             className="add-select-box"
             readOnly={true}
@@ -80,17 +104,22 @@ function AddExpense({setShowAddExpense}) {
         </div>
         <div className="add-label">Amount</div>
         <div className="add-input">
-          <input type="number" placeholder="Enter Amount" />
+          <input type="number" placeholder="Enter Amount"
+          onChange={(e)=>setAmount(e.target.value)} />
         </div>
         <div className="add-label">Description</div>
         <div className="add-input">
-          <input type="text" placeholder="Enter description" />
+          <input type="text" placeholder="Enter description"
+          onChange={(e)=>setDescription(e.target.value)} />
         </div>
         <div className="add-btn">
           <button onClick={()=>setShowAddExpense(false)}>Close</button>
-          <button>Add</button>
+          <button onClick={handleSubmit}>Add</button>
         </div>
-      </div>
+      </form>
+      {
+        load.submit && <Loader />
+      }
     </div>
   );
 }

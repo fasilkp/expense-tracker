@@ -3,7 +3,6 @@ import { useContext } from 'react'
 import { BiRupee } from 'react-icons/bi'
 import AuthContext from '../../context/AuthContext'
 import ListComp from '../ListCompnent/ListCom'
-import Loader from '../Loader/Loader'
 import './Home.css'
 function Home() {
     const {user}=useContext(AuthContext)
@@ -35,7 +34,6 @@ function Home() {
                 <ListComp/>
             </div>
         </div>
-        <Loader></Loader>
     </div>
   )
 }
