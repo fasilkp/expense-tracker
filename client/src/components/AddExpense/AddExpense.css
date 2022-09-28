@@ -92,17 +92,26 @@
 .category-icon.rent{
     color: rgb(0, 128, 57);
 }
+/* .category-icon.fees{
+    color: rgb(6, 105, 51);
+} */
 .category-icon.emi{
     color: rgb(100, 128, 1);
 }
 .category-icon.transport{
-    color: brown;
+    color: rgb(136, 30, 30);
 }
 .category-icon.other{
     color: #303030;
 }
 .category-icon.shopping{
     color: rgb(0, 132, 255);
+}
+.category-icon.hospital{
+    color: rgb(255, 30, 0);
+}
+.category-icon.school{
+    color: rgb(0, 108, 116);
 }
 @keyframes containerAnime {
     0%{

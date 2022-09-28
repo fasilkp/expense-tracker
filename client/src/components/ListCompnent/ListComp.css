@@ -71,7 +71,7 @@
     font-size: 1.6rem;
 }
 .list-category-icon.food{
-    color: rgb(255, 115, 0);
+    color: rgb(209, 77, 0);
 }
 .list-category-icon.entertainment{
     color: rgb(1, 9, 107);
@@ -79,17 +79,23 @@
 .list-category-icon.rent{
     color: rgb(0, 128, 57);
 }
+.list-category-icon.fees{
+    color: rgb(0, 128, 57);
+}
 .list-category-icon.emi{
     color: rgb(100, 128, 1);
 }
 .list-category-icon.transport{
-    color: brown;
+    color: rgb(136, 30, 30);
 }
 .list-category-icon.other{
     color: #303030;
 }
 .list-category-icon.shopping{
     color: rgb(0, 132, 255);
+}
+.list-category-icon.hospital{
+    color: rgb(255, 30, 0);
 }
 @media only screen and (max-width: 600px) {
     .SpendList{

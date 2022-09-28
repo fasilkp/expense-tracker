@@ -1,15 +1,12 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import "./AddExpense.css";
 import Select from "react-select";
 import { HiCollection } from "react-icons/hi";
 import { IoFastFood } from "react-icons/io5";
-import { BsCashCoin} from "react-icons/bs";
-import { GiPopcorn } from "react-icons/gi";
-import { FaCartArrowDown,FaRegCalendarAlt } from "react-icons/fa";
+import { FaCartArrowDown,FaMoneyBillWave  } from "react-icons/fa";
 import { RiTaxiFill } from "react-icons/ri";
-import { useState } from "react";
+import { FcClapperboard, FcDepartment, FcMoneyTransfer, FcPlanner, FcPlus } from "react-icons/fc";
 import axios from "axios";
-import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Loader from '../Loader/Loader'
@@ -24,7 +21,7 @@ function AddExpense({setShowAddExpense}) {
     {
           value: "rent",
           text: 'Rent',
-          icon: <BsCashCoin className="category-icon rent"/> 
+          icon: <FaMoneyBillWave className="category-icon rent"/> 
         },
         {
           value: "food",
@@ -34,7 +31,7 @@ function AddExpense({setShowAddExpense}) {
         {
           value: "entertainment",
           text: 'Entertainment',
-          icon: <GiPopcorn className="category-icon entertainment"/> 
+          icon: <FcClapperboard className="category-icon entertainment"/> 
         },
         {
           value: "transport",
@@ -42,14 +39,29 @@ function AddExpense({setShowAddExpense}) {
           icon: <RiTaxiFill className="category-icon transport"/> 
         },
         {
-          value: "emi",
-          text: 'EMI',
-          icon: <FaRegCalendarAlt className="category-icon emi"/> 
-        },
-        {
           value: "shopping",
           text: 'Shopping',
           icon: <FaCartArrowDown className="category-icon shopping"/> 
+        },
+        {
+          value: "emi",
+          text: 'EMI',
+          icon: <FcPlanner className="category-icon emi"/> 
+        },
+        {
+          value: "hospital",
+          text: 'Hospital',
+          icon: <FcPlus className="category-icon hospital"/> 
+        },
+        {
+          value: "school",
+          text: 'School',
+          icon: <FcDepartment className="category-icon school"/> 
+        },
+        {
+          value: "fees",
+          text: 'Fees',
+          icon: <FcMoneyTransfer className="category-icon fees"/> 
         },
         {
           value: "other",
