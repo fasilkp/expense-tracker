@@ -54,7 +54,7 @@ export const getItemsWithLimit = async (req, res) => {
 export const getMonthDetails = async (req, res) => {
   const { uid, month } = req.body;
   try{
-    const monthDetails = await ItemModel.find({uid, month})
+    const monthDetails = await MonthlyModel.findOne({uid, month})
     return res.status(201) .json({ err: false, monthDetails});
   }catch(err){
     return res .status(500).json({ err });

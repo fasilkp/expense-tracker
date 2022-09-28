@@ -21,9 +21,9 @@ function Home() {
             });
             let newList = [];
             let prevDate = new Date(data.allItems[0].createdAt);
-            setTotalAmount(0)
+            // setTotalAmount(0)
             data.allItems.forEach((item, index) => {
-                setTotalAmount(totalAmount=>totalAmount+item.amount);
+                // setTotalAmount(totalAmount=>totalAmount+item.amount);
                 let date = new Date(item.createdAt);
                 if(index==0){
                      newList.push({ ...data.allItems[0], newDate: true, date:toDateFormat(prevDate) });
@@ -40,6 +40,13 @@ function Home() {
             });
             console.log(newList)
             setList(newList);
+            await axios.post('/list/get-month-details',
+            {
+                uid:user._id, 
+                month:toMonthWords(currentDate.getMonth())+currentDate.getFullYear()
+            }).then((res)=>{
+                setTotalAmount(res.data.monthDetails.spent)
+            })
         }
         fetchData();
     }, []);
