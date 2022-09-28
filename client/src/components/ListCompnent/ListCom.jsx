@@ -56,12 +56,11 @@ function ListComp({list}) {
             <div className="list-items">
                 {
                     list.map((item, index)=>{
-                        return <>
+                        return < div key={index}>
                         {item.newDate && <caption>
                             {item.date}
                         </caption>}
                         <ListItem 
-                        key={index}
                         IconComponent={Components[item.category].icon}
                         className={Components[item.category].className}
                         amount={item.amount}
@@ -69,7 +68,7 @@ function ListComp({list}) {
                         date={item.createdAt}
                         category={item.category}
                         />
-                        </> 
+                        </div> 
                     })
                     
                 }

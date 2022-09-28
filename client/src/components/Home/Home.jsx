@@ -9,6 +9,7 @@ import ListComp from "../ListCompnent/ListCom";
 import { toDateFormat } from "../../actions/toDateFormat";
 import { toMonthWords } from "../../actions/toMonthWords";
 import "./Home.css";
+import EditMonthlyLimit from "../EditMonthlyLimit/EditMonthlyLimit";
 function Home() {
     const { user } = useContext(AuthContext);
     const [list, setList] = useState([]);
@@ -76,6 +77,7 @@ function Home() {
                 <div className="home-recent">
                     <ListComp list={list} />
                 </div>
+                <EditMonthlyLimit/>
             </div>
         </div>
     );
