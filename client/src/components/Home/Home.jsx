@@ -44,7 +44,8 @@ function Home() {
             await axios.post('/list/get-month-details',
             {
                 uid:user._id, 
-                month:toMonthWords(currentDate.getMonth())+currentDate.getFullYear()
+                month:toMonthWords(currentDate.getMonth())+currentDate.getFullYear(),
+                monthlyLimit:user.monthlyLimit
             }).then((res)=>{
                 setTotalAmount(res.data.monthDetails.spent)
             })
@@ -77,7 +78,7 @@ function Home() {
                 <div className="home-recent">
                     <ListComp list={list} />
                 </div>
-                <EditMonthlyLimit/>
+                {/* <EditMonthlyLimit/> */}
             </div>
         </div>
     );

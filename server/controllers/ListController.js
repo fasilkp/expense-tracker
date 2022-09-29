@@ -52,10 +52,21 @@ export const getItemsWithLimit = async (req, res) => {
   }
 };
 export const getMonthDetails = async (req, res) => {
-  const { uid, month } = req.body;
+  const { uid,month, monthlyLimit } = req.body;
   try{
     const monthDetails = await MonthlyModel.findOne({uid, month})
-    return res.status(201) .json({ err: false, monthDetails});
+    if(monthDetails.limit===0){
+      console.log("0")
+      await MonthlyModel.findOneAndUpdate({
+        month: toMonthWords(new Date().getMonth())+new Date().getFullYear(),
+        uid
+      }, 
+      {$set: {limit:monthlyLimit}},
+      {upsert:true},
+      ).then((result)=>{
+        return res.status(201) .json({ err: false, monthDetails:result});
+      })
+    }
   }catch(err){
     return res .status(500).json({ err });
   }
