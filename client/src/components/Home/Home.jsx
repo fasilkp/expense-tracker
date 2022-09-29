@@ -14,17 +14,15 @@ function Home() {
     const { user } = useContext(AuthContext);
     const [list, setList] = useState([]);
     const currentDate=new Date()
-    const [totalAmount, setTotalAmount]=useState(0)
+    const [monthDetails, setMonthDetails]=useState({})
     useEffect(() => {
         async function fetchData() {
             const { data } = await axios.post("/list/get-recent-items", {
                 uid: user._id,
             });
             let newList = [];
-            let prevDate = new Date(data.allItems[0].createdAt);
-            // setTotalAmount(0)
-            data.allItems.forEach((item, index) => {
-                // setTotalAmount(totalAmount=>totalAmount+item.amount);
+            let prevDate = new Date(data?.allItems[0]?.createdAt);
+            data?.allItems?.forEach((item, index) => {
                 let date = new Date(item.createdAt);
                 if(index==0){
                      newList.push({ ...data.allItems[0], newDate: true, date:toDateFormat(prevDate) });
@@ -47,7 +45,8 @@ function Home() {
                 month:toMonthWords(currentDate.getMonth())+currentDate.getFullYear(),
                 monthlyLimit:user.monthlyLimit
             }).then((res)=>{
-                setTotalAmount(res.data.monthDetails.spent)
+                console.log(res)
+                setMonthDetails(res.data.monthDetails)
             })
         }
         fetchData();
@@ -63,12 +62,12 @@ function Home() {
                     <label>Spent</label>
                     <div className="home-amount first">
                         <BiRupee />
-                        <h1>{totalAmount}/ {user?.monthlyLimit}</h1>
+                        <h1>{monthDetails?.spent}/ {monthDetails?.limit}</h1>
                     </div>
                     <label>Balance</label>
                     <div className="home-amount">
                         <BiRupee />
-                        <h3>{user?.monthlyLimit - totalAmount}</h3>
+                        <h3>{monthDetails?.limit - monthDetails?.spent}</h3>
                     </div>
                     <label>Month</label>
                     <div className="home-month">
