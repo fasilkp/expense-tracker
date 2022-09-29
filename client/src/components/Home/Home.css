@@ -44,6 +44,19 @@
 .home-amount h1{
     font-weight: 600;
 }
+.home-amount button{
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-left: 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
 .home-recent{
 
 }

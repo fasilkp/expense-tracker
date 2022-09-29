@@ -1,7 +1,7 @@
 import React from 'react'
 import '../AddExpense/AddExpense.css'
 
-function EditMonthlyLimit() {
+function EditMonthlyLimit({handleClose}) {
   return (
     <div className="AddExpense">
     <form className="add-container">
@@ -13,7 +13,7 @@ function EditMonthlyLimit() {
         <input type="Number" placeholder="Enter Month Limit" />
       </div>
       <div className="add-btn">
-        <button >Close</button>
+        <button onClick={handleClose}>Close</button>
         <button>Add</button>
       </div>
     </form>

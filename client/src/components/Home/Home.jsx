@@ -10,11 +10,13 @@ import { toDateFormat } from "../../actions/toDateFormat";
 import { toMonthWords } from "../../actions/toMonthWords";
 import "./Home.css";
 import EditMonthlyLimit from "../EditMonthlyLimit/EditMonthlyLimit";
+import { HiPencil } from "react-icons/hi";
 function Home() {
     const { user } = useContext(AuthContext);
     const [list, setList] = useState([]);
     const currentDate=new Date()
     const [monthDetails, setMonthDetails]=useState({})
+    const[showEditLimit, setShowEditLimit]=useState(false)
     useEffect(() => {
         async function fetchData() {
             const { data } = await axios.post("/list/get-recent-items", {
@@ -62,7 +64,8 @@ function Home() {
                     <label>Spent</label>
                     <div className="home-amount first">
                         <BiRupee />
-                        <h1>{monthDetails?.spent}/ {monthDetails?.limit}</h1>
+                        <h1>{monthDetails?.spent}/{monthDetails?.limit}</h1>
+                        <button onClick={()=>setShowEditLimit(true)}>Edit <HiPencil/></button>
                     </div>
                     <label>Balance</label>
                     <div className="home-amount">
@@ -77,7 +80,7 @@ function Home() {
                 <div className="home-recent">
                     <ListComp list={list} />
                 </div>
-                {/* <EditMonthlyLimit/> */}
+                {showEditLimit  && <EditMonthlyLimit handleClose={()=>setShowEditLimit(false)}/>}
             </div>
         </div>
     );
