@@ -39,7 +39,6 @@ function Home() {
                     newList.push({...item, newDate:false})
                 }
             });
-            console.log(newList)
             setList(newList);
             await axios.post('/list/get-month-details',
             {
@@ -47,7 +46,6 @@ function Home() {
                 month:toMonthWords(currentDate.getMonth())+currentDate.getFullYear(),
                 monthlyLimit:user.monthlyLimit
             }).then((res)=>{
-                console.log(res)
                 setMonthDetails(res.data.monthDetails)
             })
         }

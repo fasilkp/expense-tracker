@@ -70,3 +70,20 @@ export const getMonthDetails = async (req, res) => {
   }
 
 };
+export const editMonthLimit = async (req, res) => {
+  try{
+    const { uid, month, monthlyLimit } = req.body;
+    await MonthlyModel.findOneAndUpdate({
+      month: toMonthWords(new Date().getMonth())+new Date().getFullYear(),
+      uid
+    }, 
+    {$set: {limit:monthlyLimit}},
+    {upsert:true, returnNewDocument:true}
+    ).then((doc)=>{
+    return res.status(201) .json({ err:false});
+    })
+  }
+  catch(err){
+    return res.status(201) .json({ err });
+  }
+};
