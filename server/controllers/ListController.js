@@ -54,7 +54,7 @@ export const getItemsWithLimit = async (req, res) => {
 export const getMonthDetails = async (req, res) => {
   const { uid,month, monthlyLimit } = req.body;
   const monthDetails = await MonthlyModel.findOne({uid, month})
-  if(!monthDetails || monthDetails.limit){
+  if(!monthDetails || monthDetails.limit==0){
     await MonthlyModel.findOneAndUpdate({
       month: toMonthWords(new Date().getMonth())+new Date().getFullYear(),
       uid
@@ -72,14 +72,13 @@ export const getMonthDetails = async (req, res) => {
 };
 export const editMonthLimit = async (req, res) => {
   try{
-    const { uid, month, monthlyLimit } = req.body;
+    const { uid, monthlyLimit } = req.body;
     await MonthlyModel.findOneAndUpdate({
       month: toMonthWords(new Date().getMonth())+new Date().getFullYear(),
       uid
     }, 
-    {$set: {limit:monthlyLimit}},
-    {upsert:true, returnNewDocument:true}
-    ).then((doc)=>{
+    {$set: {limit:monthlyLimit}}
+    ).then(()=>{
     return res.status(201) .json({ err:false});
     })
   }

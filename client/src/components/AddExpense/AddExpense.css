@@ -64,6 +64,9 @@
     font-weight: 500;
     border-radius: 10px;
 }
+.add-btn button:disabled{
+    opacity: 75%;
+}
 .add-btn button:last-child{
     background-color: var(--mainColor);
     color: white;

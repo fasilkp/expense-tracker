@@ -17,6 +17,7 @@ function Home() {
     const currentDate=new Date()
     const [monthDetails, setMonthDetails]=useState({})
     const[showEditLimit, setShowEditLimit]=useState(false)
+    const [reload, setRelaod]=useState(false)
     useEffect(() => {
         async function fetchData() {
             const { data } = await axios.post("/list/get-recent-items", {
@@ -50,7 +51,7 @@ function Home() {
             })
         }
         fetchData();
-    }, []);
+    }, [reload]);
     return (
         <div className="Home">
             <div className="home-container">
@@ -78,7 +79,7 @@ function Home() {
                 <div className="home-recent">
                     <ListComp list={list} />
                 </div>
-                {showEditLimit  && <EditMonthlyLimit handleClose={()=>setShowEditLimit(false)}/>}
+                {showEditLimit  && <EditMonthlyLimit handleClose={()=>setShowEditLimit(false)} reloadPage={()=>setRelaod(!reload)}/>}
             </div>
         </div>
     );
