@@ -11,7 +11,43 @@ const monthSchema = new mongoose.Schema({
         type: Number,
         default:0
     },
-    balance:{
+    entertainment: {
+        type: Number,
+        default:0
+    },
+    rent: {
+        type: Number,
+        default:0
+    },
+    food: {
+        type: Number,
+        default:0
+    },
+    transport: {
+        type: Number,
+        default:0
+    },
+    emi: {
+        type: Number,
+        default:0
+    },
+    shopping: {
+        type: Number,
+        default:0
+    },
+    hospital: {
+        type: Number,
+        default:0
+    },
+    school: {
+        type: Number,
+        default:0
+    },
+    fees: {
+        type: Number,
+        default:0
+    },
+    other: {
         type: Number,
         default:0
     },

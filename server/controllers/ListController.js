@@ -6,7 +6,7 @@ export const AddItem = async (req, res) => {
   const { category, amount, description, uid } = req.body;
   const newItem = new ItemModel({
     category,
-    amount,
+    amount:parseInt(amount),
     description,
     uid
   });

@@ -76,7 +76,7 @@ function AddExpense({setShowAddExpense}) {
       const handleSubmit=async(e)=>{
         e.preventDefault();
         setLoad({...load, submit:true})
-        if(category!="" && description!="" && amount>0){
+        if(category!="" && description!=""){
           const result=await axios.post('/list/add-item',{
             amount, description, category:category.value, uid:user._id
           })
@@ -87,6 +87,7 @@ function AddExpense({setShowAddExpense}) {
           }
           setLoad({...load, submit:false})
         }
+        setLoad({...load, submit:false})
       }
   return (
     <div className="AddExpense">
@@ -122,7 +123,7 @@ function AddExpense({setShowAddExpense}) {
         <div className="add-label">Amount</div>
         <div className="add-input">
           <input type="number" placeholder="Enter Amount"
-          onChange={(e)=>setAmount(e.target.value)} />
+          onChange={(e)=>setAmount(parseInt(e.target.value))} />
         </div>
         <div className="add-btn">
           <button onClick={()=>setShowAddExpense(false)}>Close</button>
