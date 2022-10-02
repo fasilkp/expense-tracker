@@ -2,6 +2,7 @@ import React from 'react'
 import { BiHome, BiBookAdd, BiUser, BiCollection} from "react-icons/bi";
 import { HiCollection, HiHome,HiUser } from "react-icons/hi";
 import { AiOutlinePieChart, AiFillPieChart} from "react-icons/ai";
+import { MdCategory, MdOutlineCategory} from "react-icons/md";
 import './Navbar.css'
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
@@ -13,7 +14,7 @@ function Navbar({selected}) {
         home:false,
         list:false,
         chart:false,
-        user:false
+        category:false
     }
     const [clicked, setClicked]=useState({...click, [selected]:true})
   return (
@@ -32,6 +33,20 @@ function Navbar({selected}) {
         </div>
         <div className="nav-item nav-expense"
         onClick={()=>{
+            setClicked({...click, category:true})
+            }}>
+            {
+                clicked.category?
+                <MdCategory className='navClicked'/> :
+                <MdOutlineCategory/>
+            }
+        </div>
+        <div className="nav-item nav-add-expense"
+        onClick={()=>setShowAddExpense(true)} >
+            <BiBookAdd></BiBookAdd>
+        </div>
+        <div className="nav-item nav-expense"
+        onClick={()=>{
             setClicked({...click, list:true})
             navigate('/list')
             }}>
@@ -41,24 +56,12 @@ function Navbar({selected}) {
                 <BiCollection />
             }
         </div>
-        <div className="nav-item nav-add-expense"
-        onClick={()=>setShowAddExpense(true)} >
-            <BiBookAdd></BiBookAdd>
-        </div>
         <div className="nav-item nav-graph"
         onClick={()=>setClicked({...click, chart:true})}>
             {
                 clicked.chart ?
                 <AiFillPieChart className='navClicked'/> :
                 <AiOutlinePieChart/>
-            }
-        </div>
-        <div className="nav-item nav-profile"
-        onClick={()=>setClicked({...click, user:true})}>
-            {
-                clicked.user ?
-                <HiUser className='navClicked'/> :
-                <BiUser/>
             }
         </div>
     </div>
