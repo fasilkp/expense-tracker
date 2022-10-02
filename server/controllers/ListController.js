@@ -20,7 +20,7 @@ export const AddItem = async (req, res) => {
     month: toMonthWords(new Date().getMonth())+new Date().getFullYear(),
     uid
   }, 
-  {$inc: {spent: amount}},
+  {$inc: {spent: amount, [category]:amount}},
   {upsert:true},
   )
   return res
