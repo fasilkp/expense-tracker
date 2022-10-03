@@ -72,57 +72,6 @@ function ListComp({list}) {
                     })
                     
                 }
-
-                {/* <ListItem 
-                IconComponent={Components['food'].icon}
-                className={Components['food'].className}
-                amount={534}
-                desc={"Movie"}
-                date={"22/09/2022"}
-                category={"Food"}
-                />
-                <caption>Yesterday</caption>
-                <ListItem 
-                IconComponent={Components['rent'].icon}
-                className={Components['rent'].className}
-                amount={534}
-                desc={"Movie"}
-                date={"22/09/2022"}
-                category={"Rent"}
-                />
-                <ListItem 
-                IconComponent={Components['transport'].icon}
-                className={Components['transport'].className}
-                amount={534}
-                desc={"Movie"}
-                date={"22/09/2022"}
-                category={"Transport"}
-                />
-                <ListItem 
-                IconComponent={Components['emi'].icon}
-                className={Components['emi'].className}
-                amount={534}
-                desc={"Movie"}
-                date={"22/09/2022"}
-                category={"EMI"}
-                />
-                <caption>18/09/2022</caption>
-                <ListItem 
-                IconComponent={Components['shopping'].icon}
-                className={Components['shopping'].className}
-                amount={534}
-                desc={"Movie"}
-                date={"22/09/2022"}
-                category={"Shopping"}
-                />
-                <ListItem 
-                IconComponent={Components['other'].icon}
-                className={Components['other'].className}
-                amount={534}
-                desc={"Movie"}
-                date={"22/09/2022"}
-                category={"Other"}
-                /> */}
             </div>
         </div>
   )

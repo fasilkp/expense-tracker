@@ -64,6 +64,9 @@
     display: flex;
     align-items: flex-start;
 }
+.list-item-name{
+    text-transform: capitalize;
+}
 .list-item-amount b{
     font-size: 1rem;
 }
