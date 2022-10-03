@@ -8,6 +8,7 @@
 }
 .spend-list-container{
     width: 650px;
+
 }
 .list-header{
     border-bottom: 1px solid rgba(128, 128, 128, 0.199);
@@ -34,4 +35,9 @@
     background-color: white;
     color: var(--secondColor);
     font-weight: 500;
+}
+@media only screen and (max-width: 600px) {
+    .spend-list-container{
+        padding: 0px 15px;
+    }
 }

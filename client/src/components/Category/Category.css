@@ -29,3 +29,8 @@
   height: 250px;
   border-radius: 15px;
 }
+@media only screen and (max-width: 600px) {
+  .category-container{
+    width: 390px;
+  }
+}

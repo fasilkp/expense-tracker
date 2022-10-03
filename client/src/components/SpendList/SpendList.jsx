@@ -13,7 +13,8 @@ function SpendList() {
   const { user } = useContext(AuthContext);
   const [list, setList] = useState([]);
   const currentDate = new Date();
-  const [month, setMonth] = useState("Sep2022");
+  const currentMonth=toMonthWords(currentDate.getMonth())+currentDate.getFullYear()
+  const [month, setMonth] = useState(currentMonth);
   const [totalAmount, setTotalAmount] = useState(0);
   const months = [
     "Jan",
