@@ -33,8 +33,9 @@ function Navbar({selected}) {
         </div>
         <div className="nav-item nav-expense"
         onClick={()=>{
-            setClicked({...click, category:true})
-            }}>
+            setClicked({...click, category:true}) 
+            navigate('/category')}
+            }>
             {
                 clicked.category?
                 <MdCategory className='navClicked'/> :

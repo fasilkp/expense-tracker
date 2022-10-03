@@ -14,14 +14,14 @@ function ListItem({IconComponent, className, category, desc,date, amount})
                         </div>
                         <div className="list-desc">
                             <b className="list-item-name">{category}</b>
-                            <span className="list-item-brief">{desc}</span>
+                            {desc && <span className="list-item-brief">{desc}</span>}
                         </div>
                         <div className="list-amount-details">
 
                             <div className="list-item-amount"><BiRupee/> <b>{amount}</b></div>
-                            <span className="list-item-date">{
-                            timeSince(uploadTime)
-                            }</span>
+                            {date && <span className="list-item-date">
+                                { timeSince(uploadTime) }
+                            </span>}
                         </div>
             </div>
         </>
