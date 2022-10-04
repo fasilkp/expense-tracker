@@ -5,6 +5,7 @@
     height: 80px;
     background-image: linear-gradient(to right, #fdf5ed , #eef2f3);
     position: fixed;
+    z-index: 89;
 }
 .header-container{
     width: 97%;

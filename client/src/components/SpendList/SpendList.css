@@ -40,4 +40,7 @@
     .spend-list-container{
         padding: 0px 15px;
     }
+    .list-header{
+        top:50px;
+    }
 }

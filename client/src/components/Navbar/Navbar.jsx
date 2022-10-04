@@ -38,8 +38,8 @@ function Navbar({selected}) {
             }>
             {
                 clicked.category?
-                <MdCategory className='navClicked'/> :
-                <MdOutlineCategory/>
+                <AiFillPieChart className='navClicked'/> :
+                <AiOutlinePieChart/>
             }
         </div>
         <div className="nav-item nav-add-expense"

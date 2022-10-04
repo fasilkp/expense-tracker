@@ -8,7 +8,7 @@ function ListItem({IconComponent, className, category, desc,date, amount})
     const uploadTime=new Date(date)
     return (
         <>
-            <div className="list-item">
+            <div className="list-item" style={{borderBottom:"1px solid #8080802b"}}>
                         <div className="list-logo">
                         <IconComponent className={className} />
                         </div>
@@ -17,7 +17,6 @@ function ListItem({IconComponent, className, category, desc,date, amount})
                             {desc && <span className="list-item-brief">{desc}</span>}
                         </div>
                         <div className="list-amount-details">
-
                             <div className="list-item-amount"><BiRupee/> <b>{amount}</b></div>
                             {date && <span className="list-item-date">
                                 { timeSince(uploadTime) }
