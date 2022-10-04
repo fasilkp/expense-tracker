@@ -5,6 +5,7 @@ import { AiFillPieChart, AiFillSetting} from "react-icons/ai";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoLogOut } from 'react-icons/io5';
+import { TiChartLine } from 'react-icons/ti';
 import axios from 'axios';
 import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
@@ -50,10 +51,10 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                 <div className={`side-list-item ${selected.user && " selected"}`}
                 onClick={()=>{
                     setSelected({...select, user:true})
-                    navigate('/')
+                    navigate('/category')
                     }}>
-                    <HiUser className='side-list-icon'></HiUser>
-                    <span>User</span>
+                    <AiFillPieChart className='side-list-icon'></AiFillPieChart>
+                    <span>Categories</span>
                 </div>
                 <div className={`side-list-item ${selected.list && " selected"}`}
                 onClick={()=>{
@@ -76,7 +77,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                     setSelected({...select, chart:true})
                     navigate('/')
                     }}>
-                    <AiFillPieChart className='side-list-icon'></AiFillPieChart>
+                    <TiChartLine className='side-list-icon'></TiChartLine>
                     <span>Analysis</span>
                 </div>
                 <div className="side-list-header">General</div>

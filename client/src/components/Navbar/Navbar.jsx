@@ -7,6 +7,7 @@ import './Navbar.css'
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 import AddExpense from '../AddExpense/AddExpense';
+import { TiChartLine, TiChartLineOutline } from 'react-icons/ti';
 function Navbar({selected}) {
     const navigate=useNavigate()
     const [showAddExpense, setShowAddExpense]=useState(false)
@@ -61,8 +62,8 @@ function Navbar({selected}) {
         onClick={()=>setClicked({...click, chart:true})}>
             {
                 clicked.chart ?
-                <AiFillPieChart className='navClicked'/> :
-                <AiOutlinePieChart/>
+                <TiChartLine className='navClicked'/> :
+                <TiChartLineOutline/>
             }
         </div>
     </div>
