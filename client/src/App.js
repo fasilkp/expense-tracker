@@ -12,7 +12,7 @@ import Category from './components/Category/Category';
 import CategoryPage from './pages/CategoryPage';
 import AnalysisPage from './pages/AnalysisPage';
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:8080/api';
+axios.defaults.baseURL = 'https://expensetrackerserver.herokuapp.com/api';
 function App() {
   const {loggedIn, updateLogin}=useContext(AuthContext);
   useEffect(()=>{
