@@ -70,6 +70,17 @@ export const getMonthDetails = async (req, res) => {
   }
 
 };
+export const getAllMonthDetails = async (req, res) => {
+  try{
+    const { uid } = req.body;
+    const allMonthDetails = await MonthlyModel.find({uid}).sort({ createdAt: 1 });
+    res.json(allMonthDetails)
+  }catch(err){
+    res.json({err})
+  }
+
+
+};
 export const editMonthLimit = async (req, res) => {
   try{
     const { uid, monthlyLimit } = req.body;

@@ -13,7 +13,7 @@ var months=['jan', 'feb', 'mar','apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct',
 export function monthListBalance(arr){
     let replaced =[]
     arr.forEach(str=>{
-        replaced.push(str.replace(/[0-9]/g, ''));
+        replaced.push(str.replace(/[0-9]/g, '').toLoweCase());
     })
     let lastEl=arr[arr.length-1]
     let lastIndex=months.indexOf(arr[arr.length-1])
