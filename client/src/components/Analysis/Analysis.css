@@ -1,0 +1,38 @@
+.Analysis{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    
+}
+.ansl-container{
+    padding: 20px;
+    width: 100%;
+}
+.anls-banner-container{
+    width: 650px;
+    height: 400px;
+    background-color: rgb(22, 20, 20);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+.anls-banner{
+    transform: scale(1.2);
+}
+@media only screen and (max-width: 600px) {
+    .Analysis{
+        padding-top: 100px;
+    }
+    .anls-banner-container{
+        width: 93vw;
+        height: 300px;
+    }
+    .anls-banner{
+        transform: scale(.7);
+    }
+}

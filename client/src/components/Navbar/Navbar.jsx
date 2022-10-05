@@ -59,7 +59,10 @@ function Navbar({selected}) {
             }
         </div>
         <div className="nav-item nav-graph"
-        onClick={()=>setClicked({...click, chart:true})}>
+        onClick={()=>{
+            setClicked({...click, chart:true})
+            navigate('/analysis')
+            }}>
             {
                 clicked.chart ?
                 <TiChartLine className='navClicked'/> :

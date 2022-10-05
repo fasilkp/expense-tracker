@@ -31,7 +31,8 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
 }
 @media only screen and (max-width: 600px) {
   .category-container{
-    width: 390px;
+    width: 100%;
+    padding: 15px;
   }
   .category-banner{
     height: 280px;
