@@ -12,7 +12,7 @@ export const registerUser = async (req, res) => {
     return res.json({ register: false, message: "userName Already Taken" });
   const user = new UserModel({
     monthlyLimit,
-    name,
+    name, 
     email,
     password: hashPassword,
   });

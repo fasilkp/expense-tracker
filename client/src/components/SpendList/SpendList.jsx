@@ -63,7 +63,7 @@ function SpendList() {
     }
     fetchData();
   }, [month]);
-  return (
+  return ( 
     <div className="SpendList">
       <div className="spend-list-container">
         <div className="list-header">
