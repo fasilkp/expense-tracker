@@ -10,6 +10,7 @@ import AuthContext from './context/AuthContext';
 import Test from './Test';
 import Category from './components/Category/Category';
 import CategoryPage from './pages/CategoryPage';
+import AnalysisPage from './pages/AnalysisPage';
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = 'http://localhost:8080/api';
 function App() {
@@ -26,6 +27,7 @@ function App() {
                   <Route path="/" element={<HomePage />}/>
                   <Route path="/list" element={<ListPage />}/>
                   <Route path="/category" element={<CategoryPage />}/>
+                  <Route path="/analysis" element={<AnalysisPage />}/>
                   <Route path="/login" element={<LoginPage />}/>
                   <Route path="/register" element={<RegisterPage/>}/>
                   <Route path="/test" element={<Test/>}/>

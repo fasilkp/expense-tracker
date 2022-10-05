@@ -13,8 +13,8 @@ function Category() {
     const [monthDetails,setMonthDetails]=useState({})
     const [seriesList,setSeriesList]=useState([])
     const categories=[
-        "entertainment", "transport", "emi", "rent",
-        "fees", "food", "shopping", "hospital", "school","other"
+        "entertainment", "transport", "emi",
+        "fees", "food", "rent", "shopping", "hospital", "school","other"
     ]
     useEffect(()=>{
         async function fetchData(){
@@ -47,6 +47,13 @@ function Category() {
                 enabled:false
            }
           },
+          fill:{
+            colors: [
+              '#FF4560','#554298','#22BF58','#4DC8EF',
+              '#FEB019','#00E396','#008FFB','#FF36A3',
+              '#FFE600','#0069A5'
+            ]
+          },
           stroke: {
             colors: ['rgba(255, 30, 0, 0)']
           },
@@ -68,8 +75,16 @@ function Category() {
             offsetY: 0,
             fontWeight:550,
             fontSize:"15px",
-            fillColors:["#fff"]
-          }
+            fillColors:["#fff"],
+            markers: {
+              fillColors:[
+                '#FF4560','#554298','#22BF58','#00B2EB',
+                '#FEB019','#00E396','#008FFB','#FF36A3',
+                '#FFE600','#0069A5'
+              ]
+            }
+          },
+          
         },
       
       
