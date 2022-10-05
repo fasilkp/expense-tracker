@@ -44,6 +44,10 @@ function ListComp({list}) {
             icon:FcMoneyTransfer,
             className:"list-category-icon fees"
         },
+        spent: {
+            icon:FcMoneyTransfer,
+            className:"list-category-icon fees"
+        },
         other: {
             icon:HiCollection,
             className:"list-category-icon other"
@@ -67,6 +71,8 @@ function ListComp({list}) {
                         desc={item.description}
                         date={item.createdAt}
                         category={item.category}
+                        balance={item.balance}
+                        month={item.month}
                         />
                         </div> 
                     })

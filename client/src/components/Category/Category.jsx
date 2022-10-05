@@ -8,7 +8,7 @@ import AuthContext from '../../context/AuthContext'
 import { toMonthWords } from '../../actions/toMonthWords'
 import ReactApexChart from 'react-apexcharts'
 function Category() {
-    const defaultSet={desc:false, createdAt:false}
+    const defaultSet={desc:false, createdAt:false, balance:false, month:false}
     const {user}=useContext(AuthContext)
     const [monthDetails,setMonthDetails]=useState({})
     const [seriesList,setSeriesList]=useState([])

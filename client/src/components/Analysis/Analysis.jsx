@@ -1,7 +1,16 @@
+import axios from "axios";
 import React from "react";
+import { useContext } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
+import { toMonthWords } from "../../actions/toMonthWords";
+import AuthContext from "../../context/AuthContext";
+import ListComp from "../ListCompnent/ListCom";
 import "./Analysis.css";
 function Analysis() {
+  const {user}=useContext(AuthContext)
+  const [monthDetails, setMonthDetails]=useState([])
   const state = {
     series: [
       {
@@ -71,6 +80,29 @@ function Analysis() {
       },
     },
   };
+  useEffect(()=>{
+    async function fetchData(){
+        const {data}=await axios.post('/list/get-all-month-details',{
+            uid:user._id
+        })
+        if(!data.err) {
+            let list=[]
+            data.forEach(item=>{
+                list.push({
+                  category:"spent",
+                  month:toMonthWords(new Date(item.createdAt).getMonth())+" "+new Date(item.createdAt).getFullYear(), 
+                  amount:item.spent, 
+                  description:"limit : "+(item.limit),
+                  balance:"Balance : "+(item.limit-item.spent),
+                  createdAt:false
+                })
+            })
+            setMonthDetails(list)
+            console.log(data)
+
+        }
+    }fetchData();
+},[])
   return (
     <div className="Analysis">
       <div className="anls-container">
@@ -89,7 +121,7 @@ function Analysis() {
         </div>
         </div>
         <div className="anls-month-list">
-          
+        <ListComp list={monthDetails}></ListComp>
         </div>
       </div>
     </div>
