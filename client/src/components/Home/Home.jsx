@@ -69,11 +69,11 @@ function Home() {
                     <label>Balance</label>
                     <div className="home-amount">
                         <BiRupee />
-                        <h3>{monthDetails?.limit - monthDetails?.spent}</h3>
+                        <h2>{monthDetails?.limit - monthDetails?.spent}</h2>
                     </div>
                     <label>Month</label>
                     <div className="home-month">
-                        <h3> {toMonthWords(currentDate.getMonth())+" - "+currentDate.getFullYear()}</h3>
+                        <h3> &nbsp;&nbsp; {toMonthWords(currentDate.getMonth())+" - "+currentDate.getFullYear()}</h3>
                     </div>
                 </div>
                 <div className="home-recent">

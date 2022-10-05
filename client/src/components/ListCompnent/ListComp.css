@@ -60,15 +60,15 @@
     color: grey;
 }
 .list-item-amount{
-    font-size: .85rem;
+    font-size: 1rem;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 .list-item-name{
     text-transform: capitalize;
 }
 .list-item-amount b{
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 .list-category-icon{
     font-size: 1.6rem;

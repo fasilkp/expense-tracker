@@ -42,7 +42,10 @@ function Category() {
             foreColor:"#fff"
           },
           dataLabels: {
-            enabled: false
+            enabled: true,
+           dropShadow:{
+                enabled:false
+           }
           },
           stroke: {
             colors: ['rgba(255, 30, 0, 0)']
@@ -52,7 +55,7 @@ function Category() {
             breakpoint: 480,
             options: {
               chart: {
-                width: 430
+                width: 450
               },
               legend: {
                 show: true,

@@ -20,10 +20,14 @@ background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Ch
 background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 100%;
   height: 300px;
-  border-radius: 15px;
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-transform: capitalize;
+}
+.category-banner span{
+  margin-right: 10px;
 }
 @media only screen and (max-width: 600px) {
   .category-container{
@@ -33,7 +37,7 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
     height: 280px;
   }
   .category-banner-div{
-    transform: scale(.87);
+    transform: scale(.85);
   }
   .category-banner-sec{
     margin: 0px;
