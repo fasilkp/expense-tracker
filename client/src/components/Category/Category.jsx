@@ -89,7 +89,6 @@ function Category() {
       
       
       };
-    console.log(monthDetails)
     const list=[
         {amount:monthDetails.entertainment, category:"entertainment", ...defaultSet},
         {amount:monthDetails.transport, category:"transport", ...defaultSet},

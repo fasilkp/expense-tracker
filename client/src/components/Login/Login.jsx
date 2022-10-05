@@ -23,10 +23,11 @@ function Login() {
         setLoad(true)
         if (email !== "" || password.length > 6) {
             const user = await Axios.post("/auth/login", { email, password });
-            console.log(user.data.message);
+            updateLogin();
+            
             if (user.data.login) {
                 updateLogin();
-                navigate('/')
+                window.location.href="/"
             }
             else {
                 alert(user.data.message);

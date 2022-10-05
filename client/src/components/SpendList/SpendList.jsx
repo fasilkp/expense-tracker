@@ -59,7 +59,6 @@ function SpendList() {
           newList.push({ ...item, newDate: false });
         }
       });
-      console.log(newList);
       setList(newList);
     }
     fetchData();

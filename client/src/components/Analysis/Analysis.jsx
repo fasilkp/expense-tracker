@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
+import { IoTennisball } from "react-icons/io5";
+import { amountListBalance, monthListBalance } from "../../actions/analysisAlign";
 import { toMonthWords } from "../../actions/toMonthWords";
 import AuthContext from "../../context/AuthContext";
 import ListComp from "../ListCompnent/ListCom";
@@ -11,19 +13,23 @@ import "./Analysis.css";
 function Analysis() {
   const {user}=useContext(AuthContext)
   const [monthDetails, setMonthDetails]=useState([])
+  const [monthList, setMonthList]=useState([])
+  const [spendList, setSpendList]=useState([])
+  const [balanceList, setBalanceList]=useState([])
+  const [limitList, setLimitList]=useState([])
   const state = {
     series: [
       {
         name: "Spent",
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 45, 56, 89],
+        data: spendList,
       },
       {
         name: "Limit",
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94, 65, 34, 98],
+        data: limitList,
       },
       {
         name: "Balance",
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41, 91, 56, 72],
+        data: balanceList,
       },
     ],
     options: {
@@ -48,20 +54,7 @@ function Analysis() {
         colors: ["transparent"],
       },
       xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
+        categories: monthList,
       },
       yaxis: {
         title: {
@@ -87,18 +80,29 @@ function Analysis() {
         })
         if(!data.err) {
             let list=[]
+            let spList=[]
+            let baList=[]
+            let mntList=[]
+            let ltList=[]
             data.forEach(item=>{
                 list.push({
                   category:"spent",
-                  month:toMonthWords(new Date(item.createdAt).getMonth())+" "+new Date(item.createdAt).getFullYear(), 
+                  month:item.month, 
                   amount:item.spent, 
                   description:"limit : "+(item.limit),
                   balance:"Balance : "+(item.limit-item.spent),
                   createdAt:false
                 })
+                spList.push(item.spent)
+                baList.push(item.limit-item.spent)
+                mntList.push(item.month)
+                ltList.push(item.limit)
             })
+            setSpendList(amountListBalance(spList.reverse()))
+            setBalanceList(amountListBalance(baList.reverse()))
+            setLimitList(amountListBalance(ltList.reverse()))
+            setMonthList(monthListBalance(mntList.reverse()))
             setMonthDetails(list)
-            console.log(data)
 
         }
     }fetchData();

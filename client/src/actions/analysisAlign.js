@@ -1,25 +1,25 @@
 export function amountListBalance(arr){
     let newArr=arr
     let arrLen=arr.length
-    console.log(arr.length)
+    var i;
     for(i=0; i<(12-arrLen); i++){
         newArr.push(0)
-        console.log("hai")
     }
-    console.log(newArr)
+    return newArr
 }
 
 var months=['jan', 'feb', 'mar','apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 export function monthListBalance(arr){
     let replaced =[]
     arr.forEach(str=>{
-        replaced.push(str.replace(/[0-9]/g, '').toLoweCase());
+        replaced.push(str.replace(/[0-9]/g, '').toLowerCase());
     })
-    let lastEl=arr[arr.length-1]
-    let lastIndex=months.indexOf(arr[arr.length-1])
+    let lastEl=arr[arr.length-1].replace(/[0-9]/g, '').toLowerCase()
+    let lastIndex=months.indexOf(lastEl)
     let count=lastIndex
     let newArr=replaced
     let arrLen=arr.length
+    var i;
     for(i=0; i<(12-arrLen); i++){
         count++;
         if(count>11){
@@ -27,5 +27,6 @@ export function monthListBalance(arr){
         }
         newArr.push(months[count])
     }
-    console.log(newArr)
+    return newArr
+
 }
