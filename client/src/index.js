@@ -15,5 +15,5 @@ root.render(
 );
 
 
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.unregister();
 
