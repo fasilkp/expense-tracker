@@ -1,8 +1,5 @@
 import axios from "axios";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useContext } from "react";
+import React, {useEffect, useState, useContext} from "react";
 import { BiRupee } from "react-icons/bi";
 import AuthContext from "../../context/AuthContext";
 import ListComp from "../ListCompnent/ListCom";
@@ -30,14 +27,14 @@ function Home() {
                 if(index==0){
                      newList.push({ ...data.allItems[0], newDate: true, date:toDateFormat(prevDate) });
                 }
-                else if (date.getDate() != prevDate.getDate() ||
-                        date.getMonth() != prevDate.getMonth() ||
-                        date.getFullYear() != prevDate.getFullYear() ) {
+                else if (date.getDate() !== prevDate.getDate() ||
+                        date.getMonth() !== prevDate.getMonth() ||
+                        date.getFullYear() !== prevDate.getFullYear() ) {
                             prevDate=date;
-                            newList.push({...item, newDate:true, date:toDateFormat(date)})
+                            newList.push({...item, newDate:true, date:toDateFormat(date), month:false})
                 }
                 else{
-                    newList.push({...item, newDate:false})
+                    newList.push({...item, newDate:false, month:false})
                 }
             });
             setList(newList);

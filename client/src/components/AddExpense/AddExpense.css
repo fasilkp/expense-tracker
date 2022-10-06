@@ -131,5 +131,8 @@
     .add-container{
         width: 380px;
     }
+    .add-container>div{
+        transform: scaleY(.9);
+    }
 
 }

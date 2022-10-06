@@ -1,6 +1,5 @@
-import React from 'react'
-import { useState } from 'react'
-import { BiBell } from 'react-icons/bi'
+import React, {useState} from 'react'
+import { BiBell, BiUser } from 'react-icons/bi'
 import { HiMenuAlt1 } from 'react-icons/hi'
 import Sidebar from '../Sidebar/Sidebar'
 import './Header.css'
@@ -11,7 +10,7 @@ function Header({selected, heading}) {
     <div className='Header'>
       <div className="header-container">
         <div className="header-item" onClick={()=>setSidebar(!sidebar)}><HiMenuAlt1/> &nbsp; &nbsp; {heading}</div>
-        <div className="header-item"><BiBell/></div>
+        <div className="header-item"><BiUser/></div>
       </div>
     </div>
     {

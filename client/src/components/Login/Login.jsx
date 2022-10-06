@@ -1,7 +1,6 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import './Login.css'
 import LoginImage from '../../images/login-image.png'
-import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Axios from 'axios'
 import AuthContext from '../../context/AuthContext'

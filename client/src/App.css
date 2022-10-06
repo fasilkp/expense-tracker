@@ -17,4 +17,16 @@
   height: 100%;
   background-image: linear-gradient(to right, #fdf5ed , #eef2f3);
   color: #303030;
+  
+}
+.App div{
+  animation: basicAnime .3s ;
+}
+@keyframes basicAnime{
+  from{
+    opacity:50%;
+  }
+  to{
+    opacity: 100%;
+  }
 }

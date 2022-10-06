@@ -12,14 +12,15 @@ connectDB();
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(
   cors({
-    origin: [process.env.CLIENT_URL],
     credentials: true,
+    origin: ["http://localhost:3000", "https://expensetrackersite.netlify.app", "http://192.168.1.11:3000"],
   })
 );
 app.get('/', (req, res)=>{
-  res.send(process.env.CLIENT_URL)
+  res.send("origin array add")
 })
 // routes
 app.use("/api/auth", authRoutes);

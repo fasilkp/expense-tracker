@@ -16,6 +16,11 @@
     font-size: 1.3rem;
     color: rgba(128, 128, 128, 0.333);
 }
+.Navbar .nav-item:hover{
+    color: var(--thirdColor);
+    transition: .3s;
+    font-weight: bolder;
+}
 .navClicked{
     font-size: 1.4rem;
     color: var(--thirdColor);

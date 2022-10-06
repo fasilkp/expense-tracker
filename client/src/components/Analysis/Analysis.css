@@ -9,7 +9,7 @@
 }
 .ansl-container{
     padding: 20px;
-    width: 100%;
+    width: 650px;
 }
 .anls-banner-container{
     width: 650px;
@@ -24,6 +24,40 @@
 .anls-banner{
     transform: scale(1.2);
 }
+.anls-month-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.anls-mt{
+    width: 48%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0px 30px;
+    height: 120px;
+    color: white;
+}
+.anls-mt.spent{
+    background-color: #3CCF4E;
+}
+.anls-mt.save{
+    background-color: #277BC0;
+}
+#save-down{
+    background-color: #CC3636;
+}
+.anls-mt b{
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+
 @media only screen and (max-width: 600px) {
     .Analysis{
         padding-top: 100px;
@@ -34,5 +68,14 @@
     }
     .anls-banner{
         transform: scale(.7);
+    }
+    .anls-mt{
+        height: 100px;
+    }
+    .anls-mt h2{
+        font-size: 1.2rem;
+    }
+    .anls-mt b{
+        font-size: 1rem;
     }
 }

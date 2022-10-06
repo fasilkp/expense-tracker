@@ -1,9 +1,5 @@
 import axios from "axios";
-import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { HiUser } from "react-icons/hi";
-import { IoFastFoodSharp } from "react-icons/io5";
+import React, { useContext, useEffect, useState } from "react";
 import { toDateFormat } from "../../actions/toDateFormat";
 import { toMonthWords } from "../../actions/toMonthWords";
 import AuthContext from "../../context/AuthContext";
@@ -54,9 +50,9 @@ function SpendList() {
           date.getFullYear() != prevDate.getFullYear()
         ) {
           prevDate = date;
-          newList.push({ ...item, newDate: true, date: toDateFormat(date) });
+          newList.push({ ...item, newDate: true,month:false, date: toDateFormat(date) });
         } else {
-          newList.push({ ...item, newDate: false });
+          newList.push({ ...item, newDate: false, month:false });
         }
       });
       setList(newList);

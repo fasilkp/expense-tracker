@@ -6,6 +6,7 @@
     background-image: linear-gradient(to right, #fdf5ed , #eef2f3);
     position: fixed;
     z-index: 89;
+    padding: 0px 100px;
 }
 .header-container{
     width: 97%;
@@ -29,5 +30,6 @@
     }
     .Header{
         height: 60px;
+        padding: 0px;
     }
 }

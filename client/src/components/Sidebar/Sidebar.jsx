@@ -1,24 +1,24 @@
-import React from 'react'
+import React, {useState, useContext} from 'react'
 import './Sidebar.css'
-import { HiCollection, HiHome,HiMenuAlt1,HiPlusCircle,HiUser } from "react-icons/hi";
+import { HiCollection, HiHome,HiMenuAlt1,HiPlusCircle, HiUser } from "react-icons/hi";
 import { AiFillPieChart, AiFillSetting} from "react-icons/ai";
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoLogOut } from 'react-icons/io5';
 import { TiChartLine } from 'react-icons/ti';
 import axios from 'axios';
-import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
+import AddExpense from '../AddExpense/AddExpense';
 function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const select={
         home:false,
-        user:false,
+        profile:false,
         list:false,
         add:false,
         chart:false,
         settings:false
     }
     const [load, setload]=useState(false)
+    const [showAddExpense, setShowAddExpense]=useState(false)
     const navigate=useNavigate()
     const [selected, setSelected]=useState({...select, [selectedOption]:true})
     const {updateLogin}=useContext(AuthContext)
@@ -67,7 +67,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                 <div className={`side-list-item ${selected.add && " selected"}`}
                 onClick={()=>{
                     setSelected({...select, add:true})
-                    navigate('/')
+                    setShowAddExpense(true)
                     }}>
                     <HiPlusCircle className='side-list-icon'></HiPlusCircle>
                     <span>Add Expense</span>
@@ -75,12 +75,20 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                 <div className={`side-list-item ${selected.chart && " selected"}`}
                 onClick={()=>{
                     setSelected({...select, chart:true})
-                    navigate('/')
+                    navigate('/analysis')
                     }}>
                     <TiChartLine className='side-list-icon'></TiChartLine>
                     <span>Analysis</span>
                 </div>
                 <div className="side-list-header">General</div>
+                <div className={`side-list-item ${selected.settings && " selected"}`}
+                onClick={()=>{
+                    setSelected({...select, profile:true})
+                    navigate('/')
+                    }}>
+                    <HiUser className='side-list-icon'></HiUser>
+                    <span>Profile</span>
+                </div>
                 <div className={`side-list-item ${selected.settings && " selected"}`}
                 onClick={()=>{
                     setSelected({...select, settings:true})
@@ -98,6 +106,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         </div>
         <div className="side-balance" onClick={()=>setSidebar(!sidebar)}>
         </div>
+        {showAddExpense && <AddExpense setShowAddExpense={setShowAddExpense}/>}
     </div>
   )
 }

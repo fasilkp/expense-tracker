@@ -1,10 +1,8 @@
-import React from 'react'
-import { BiHome, BiBookAdd, BiUser, BiCollection} from "react-icons/bi";
-import { HiCollection, HiHome,HiUser } from "react-icons/hi";
+import React, {useState} from 'react'
+import { BiHome, BiBookAdd,BiCollection} from "react-icons/bi";
+import { HiCollection, HiHome} from "react-icons/hi";
 import { AiOutlinePieChart, AiFillPieChart} from "react-icons/ai";
-import { MdCategory, MdOutlineCategory} from "react-icons/md";
 import './Navbar.css'
-import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 import AddExpense from '../AddExpense/AddExpense';
 import { TiChartLine, TiChartLineOutline } from 'react-icons/ti';
