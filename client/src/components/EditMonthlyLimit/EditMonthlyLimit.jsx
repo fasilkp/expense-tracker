@@ -25,10 +25,11 @@ function EditMonthlyLimit({handleClose, reloadPage}) {
       <div className="add-label">Amount</div>
       <div className="add-input">
         <input type="number" placeholder="Enter Month Limit"
-        value={monthlyLimit} onChange={(e)=>setMonthlyLimit(e.target.value)} />
+        value={monthlyLimit} onChange={(e)=>setMonthlyLimit(e.target.value)}
+        onClick={(e)=>e.target.select()}  />
       </div>
       <div className="add-btn">
-        <button onClick={handleClose}>Close</button>
+        <button type='reset' onClick={handleClose}>Close</button>
         <button type='submit' disabled={monthlyLimit===0 || monthlyLimit==""}>Add</button>
       </div>
     </form>

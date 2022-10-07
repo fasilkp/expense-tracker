@@ -8,6 +8,7 @@ import {
   monthListBalance,
 } from "../../actions/analysisAlign";
 import AuthContext from "../../context/AuthContext";
+import EditDefaultMonthLimit from "../EditDefaultMonthLimit/EditDefaultMonthLimit";
 import ListComp from "../ListCompnent/ListCom";
 import "./Analysis.css";
 function Analysis() {
@@ -20,6 +21,7 @@ function Analysis() {
   const [totalSpent, setTotalSpent] = useState(0);
   const [totalLimit, setTotalLimit] = useState(0);
   const [saveStyleId, setSaveStyleId]=useState("")
+  const [showEditDefaultLimit, setShowEditDefaultLimit]=useState(false)
   const state = {
     series: [
       {
@@ -148,13 +150,14 @@ function Analysis() {
         <div className="anls-month-details">
           <div className="anls-mt-limit">
             <h3>Default Monthly Limit</h3>
-            <b><BiRupee/> {user?.monthlyLimit} <HiPencil class="limit-edit-pencil"/></b>
+            <b><BiRupee/> {user?.monthlyLimit} <HiPencil className="limit-edit-pencil" onClick={()=>setShowEditDefaultLimit(true)}/></b>
           </div>
         </div>
         <div className="anls-month-list">
           <ListComp list={monthDetails}></ListComp>
         </div>
       </div>
+      {showEditDefaultLimit && <EditDefaultMonthLimit handleClose={()=>{setShowEditDefaultLimit(false)}} reloadPage={()=>window.location.reload()}/>}
     </div>
   );
 }

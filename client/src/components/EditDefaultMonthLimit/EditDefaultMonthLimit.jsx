@@ -8,7 +8,7 @@ function EditDefaultMonthLimit({handleClose, reloadPage}) {
   const [monthlyLimit, setMonthlyLimit]=useState(0);
   const handleSubmit=async(e)=>{
     e.preventDefault();
-    await axios.post('/list/edit-month-limit',{
+    await axios.post('/list/edit-default-month-limit',{
       uid:user._id,
       monthlyLimit:parseInt(monthlyLimit)
     }).then(res=>{
@@ -20,15 +20,17 @@ function EditDefaultMonthLimit({handleClose, reloadPage}) {
     <div className="AddExpense">
     <form className="add-container" onSubmit={handleSubmit}>
       <div className="add-header">
-        <h2>Edit Month Limit</h2>
+        <h2>Edit Default Month Limit</h2>
       </div>
       <div className="add-label">Amount</div>
       <div className="add-input">
         <input type="number" placeholder="Enter Month Limit"
-        value={monthlyLimit} onChange={(e)=>setMonthlyLimit(e.target.value)} />
+        value={monthlyLimit} onChange={(e)=>{ setMonthlyLimit(e.target.value)}} 
+        onClick={(e)=>e.target.select()}
+        />
       </div>
       <div className="add-btn">
-        <button onClick={handleClose}>Close</button>
+        <button type='reset' onClick={handleClose}>Close</button>
         <button type='submit' disabled={monthlyLimit===0 || monthlyLimit==""}>Add</button>
       </div>
     </form>

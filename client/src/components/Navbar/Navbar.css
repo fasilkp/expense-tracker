@@ -15,6 +15,7 @@
 .Navbar .nav-item{
     font-size: 1.3rem;
     color: rgba(128, 128, 128, 0.333);
+    cursor: pointer;
 }
 .Navbar .nav-item:hover{
     color: var(--thirdColor);

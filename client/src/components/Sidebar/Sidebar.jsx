@@ -9,6 +9,7 @@ import axios from 'axios';
 import AuthContext from '../../context/AuthContext';
 import AddExpense from '../AddExpense/AddExpense';
 import EditMonthlyLimit from '../EditMonthlyLimit/EditMonthlyLimit';
+import EditDefaultMonthLimit from '../EditDefaultMonthLimit/EditDefaultMonthLimit';
 function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const select={
         home:false,
@@ -98,7 +99,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                 </div>
                 <div className={`side-list-item ${selected.add && " selected"}`}
                 onClick={()=>{
-                    setShowAddExpense(true)
+                    setShowEditDefaultLimit(true)
                     }}>
                     <HiPencil className='side-list-icon'></HiPencil>
                     <span>Edit Default Month Limit</span>
@@ -113,7 +114,8 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         <div className="side-balance" onClick={()=>setSidebar(!sidebar)}>
         </div>
         {showAddExpense && <AddExpense setShowAddExpense={setShowAddExpense}/>}
-        {showEditLimit && <EditMonthlyLimit handleClose={()=>{setShowEditLimit(false)}}/>}
+        {showEditLimit && <EditMonthlyLimit handleClose={()=>{setShowEditLimit(false)}} reloadPage={()=>window.location.reload()}/>}
+        {showEditDefaultLimit && <EditDefaultMonthLimit handleClose={()=>{setShowEditDefaultLimit(false)}} reloadPage={()=>window.location.reload()}/>}
     </div>
   )
 }

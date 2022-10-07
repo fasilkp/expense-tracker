@@ -78,6 +78,7 @@
     border-radius: 20px;
     transition: .3s;
     margin-left: 15px;
+    cursor: pointer;
 }
 .anls-mt-limit b .limit-edit-pencil:hover{
     color: #FF9F29;

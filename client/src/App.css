@@ -22,6 +22,9 @@
 .App div{
   animation: basicAnime .3s ;
 }
+button{
+  cursor: pointer;
+}
 @keyframes basicAnime{
   from{
     opacity:50%;
