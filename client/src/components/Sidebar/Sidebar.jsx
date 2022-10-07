@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import './Sidebar.css'
 import { HiCollection, HiHome,HiMenuAlt1,HiPencil,HiPlusCircle, HiUser } from "react-icons/hi";
 import { AiFillPieChart, AiFillSetting} from "react-icons/ai";
@@ -10,6 +10,7 @@ import AuthContext from '../../context/AuthContext';
 import AddExpense from '../AddExpense/AddExpense';
 import EditMonthlyLimit from '../EditMonthlyLimit/EditMonthlyLimit';
 import EditDefaultMonthLimit from '../EditDefaultMonthLimit/EditDefaultMonthLimit';
+import AlertDialog from '../AlertDialog/AlertDialog';
 function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const select={
         home:false,
@@ -18,6 +19,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         settings:false
     }
     const [load, setload]=useState(false)
+    const [openDialog, setOpenDialog]=useState(false)
     const [showAddExpense, setShowAddExpense]=useState(false)
     const [showEditLimit, setShowEditLimit]=useState(false)
     const [showEditDefaultLimit, setShowEditDefaultLimit]=useState(false)
@@ -26,11 +28,9 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const {updateLogin}=useContext(AuthContext)
     const handleLogout=async ()=>{
         setload(true)
-        if(window.confirm("Are You Sure ? Logout")){
             await axios.post('/auth/logout');
             updateLogin();
             navigate("/login")
-        }
         setload(false)
       }
   return (
@@ -105,7 +105,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                     <span>Edit Default Month Limit</span>
                 </div>
                 <div className={`side-list-item logout`}
-                onClick={handleLogout}>
+                onClick={()=>setOpenDialog(true)}>
                     <span>Logout</span>
                     <IoLogOut className='side-list-icon'></IoLogOut>
                 </div>
@@ -116,6 +116,13 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         {showAddExpense && <AddExpense setShowAddExpense={setShowAddExpense}/>}
         {showEditLimit && <EditMonthlyLimit handleClose={()=>{setShowEditLimit(false)}} reloadPage={()=>window.location.reload()}/>}
         {showEditDefaultLimit && <EditDefaultMonthLimit handleClose={()=>{setShowEditDefaultLimit(false)}} reloadPage={()=>window.location.reload()}/>}
+        {openDialog && <AlertDialog 
+        openAlert={true} 
+        setOpenDialog={setOpenDialog} 
+        handleSubmit={handleLogout}
+        text={"Are You Sure you want to logout ?"}
+        heading={"Logout"}
+        ></AlertDialog>}
     </div>
   )
 }
