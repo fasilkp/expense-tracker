@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useContext, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import { BiRupee } from "react-icons/bi";
+import { HiPencil } from "react-icons/hi";
 import {
   amountListBalance,
   monthListBalance,
@@ -69,7 +70,7 @@ function Analysis() {
       tooltip: {
         y: {
           formatter: function (val) {
-            return "$ " + val + " thousands";
+            return "₹ " + val;
           },
         },
       },
@@ -142,6 +143,12 @@ function Analysis() {
           <div className="anls-mt save" id={saveStyleId}>
             <h2>Total Saved</h2>
             <b><BiRupee/> {totalLimit-totalSpent}</b>
+          </div>
+        </div>
+        <div className="anls-month-details">
+          <div className="anls-mt-limit">
+            <h3>Default Monthly Limit</h3>
+            <b><BiRupee/> {user?.monthlyLimit} <HiPencil class="limit-edit-pencil"/></b>
           </div>
         </div>
         <div className="anls-month-list">

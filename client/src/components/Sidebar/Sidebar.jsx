@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import './Sidebar.css'
-import { HiCollection, HiHome,HiMenuAlt1,HiPlusCircle, HiUser } from "react-icons/hi";
+import { HiCollection, HiHome,HiMenuAlt1,HiPencil,HiPlusCircle, HiUser } from "react-icons/hi";
 import { AiFillPieChart, AiFillSetting} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { IoLogOut } from 'react-icons/io5';
@@ -8,17 +8,18 @@ import { TiChartLine } from 'react-icons/ti';
 import axios from 'axios';
 import AuthContext from '../../context/AuthContext';
 import AddExpense from '../AddExpense/AddExpense';
+import EditMonthlyLimit from '../EditMonthlyLimit/EditMonthlyLimit';
 function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const select={
         home:false,
-        profile:false,
         list:false,
-        add:false,
-        chart:false,
+        category:false,
         settings:false
     }
     const [load, setload]=useState(false)
     const [showAddExpense, setShowAddExpense]=useState(false)
+    const [showEditLimit, setShowEditLimit]=useState(false)
+    const [showEditDefaultLimit, setShowEditDefaultLimit]=useState(false)
     const navigate=useNavigate()
     const [selected, setSelected]=useState({...select, [selectedOption]:true})
     const {updateLogin}=useContext(AuthContext)
@@ -48,9 +49,9 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                     <HiHome className='side-list-icon'></HiHome>
                     <span>Home</span>
                 </div>
-                <div className={`side-list-item ${selected.user && " selected"}`}
+                <div className={`side-list-item ${selected.category && " selected"}`}
                 onClick={()=>{
-                    setSelected({...select, user:true})
+                    setSelected({...select, category:true})
                     navigate('/category')
                     }}>
                     <AiFillPieChart className='side-list-icon'></AiFillPieChart>
@@ -64,14 +65,6 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                     <HiCollection className='side-list-icon'></HiCollection>
                     <span>Spent List</span>
                 </div>
-                <div className={`side-list-item ${selected.add && " selected"}`}
-                onClick={()=>{
-                    setSelected({...select, add:true})
-                    setShowAddExpense(true)
-                    }}>
-                    <HiPlusCircle className='side-list-icon'></HiPlusCircle>
-                    <span>Add Expense</span>
-                </div>
                 <div className={`side-list-item ${selected.chart && " selected"}`}
                 onClick={()=>{
                     setSelected({...select, chart:true})
@@ -81,21 +74,34 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
                     <span>Analysis</span>
                 </div>
                 <div className="side-list-header">General</div>
-                <div className={`side-list-item ${selected.settings && " selected"}`}
-                onClick={()=>{
-                    setSelected({...select, profile:true})
-                    navigate('/')
-                    }}>
-                    <HiUser className='side-list-icon'></HiUser>
-                    <span>Profile</span>
-                </div>
-                <div className={`side-list-item ${selected.settings && " selected"}`}
+                {/* <div className={`side-list-item ${selected.settings && " selected"}`}
                 onClick={()=>{
                     setSelected({...select, settings:true})
                     navigate('/')
                     }}>
                     <AiFillSetting className='side-list-icon'></AiFillSetting>
                     <span>Settings</span>
+                </div> */}
+                <div className={`side-list-item ${selected.add && " selected"}`}
+                onClick={()=>{
+                    setShowEditLimit(true)
+                    }}>
+                    <HiPencil className='side-list-icon'></HiPencil>
+                    <span>Edit Month Limit</span>
+                </div>
+                <div className={`side-list-item ${selected.add && " selected"}`}
+                onClick={()=>{
+                    setShowAddExpense(true)
+                    }}>
+                    <HiPlusCircle className='side-list-icon'></HiPlusCircle>
+                    <span>Add Expense</span>
+                </div>
+                <div className={`side-list-item ${selected.add && " selected"}`}
+                onClick={()=>{
+                    setShowAddExpense(true)
+                    }}>
+                    <HiPencil className='side-list-icon'></HiPencil>
+                    <span>Edit Default Month Limit</span>
                 </div>
                 <div className={`side-list-item logout`}
                 onClick={handleLogout}>
@@ -107,6 +113,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         <div className="side-balance" onClick={()=>setSidebar(!sidebar)}>
         </div>
         {showAddExpense && <AddExpense setShowAddExpense={setShowAddExpense}/>}
+        {showEditLimit && <EditMonthlyLimit handleClose={()=>{setShowEditLimit(false)}}/>}
     </div>
   )
 }

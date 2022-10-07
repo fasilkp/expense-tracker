@@ -11,7 +11,7 @@ export function amountListBalance(arr){
 var months=['jan', 'feb', 'mar','apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 export function monthListBalance(arr){
     let replaced =[]
-    arr.forEach(str=>{
+    arr.slice(0,12).forEach(str=>{
         replaced.push(str.replace(/[0-9]/g, '').toLowerCase());
     })
     let lastEl=arr[arr.length-1].replace(/[0-9]/g, '').toLowerCase()

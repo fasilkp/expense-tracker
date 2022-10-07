@@ -43,6 +43,7 @@ function SpendList() {
             ...data.allItems[0],
             newDate: true,
             date: toDateFormat(prevDate),
+            month:false
           });
         } else if (
           date.getDate() != prevDate.getDate() ||
@@ -71,7 +72,7 @@ function SpendList() {
               onChange={(e) => setMonth(e.target.value)}
             >
               {months.map((item, index) => {
-                return <option value={item + 2022}>{item}/2022</option>;
+                return <option key={index} value={item + 2022}>{item}/2022</option>;
               })}
             </select>
           </div>

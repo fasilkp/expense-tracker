@@ -39,6 +39,7 @@
     padding: 0px 30px;
     height: 120px;
     color: white;
+    font-weight: 600;
 }
 .anls-mt.spent{
     background-color: #3CCF4E;
@@ -49,12 +50,39 @@
 #save-down{
     background-color: #CC3636;
 }
-.anls-mt b{
+.anls-mt b, .anls-mt-limit b{
     color: rgba(255, 255, 255, 0.8);
     font-weight: 500;
     font-size: 1.3rem;
     display: flex;
     align-items: center;
+}
+.anls-mt-limit{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: #FF9F29;
+    color: white;
+    width: 100%;
+    border-radius: 25px;
+    height: 90px;
+    align-items: center;
+}
+.anls-mt-limit b,.anls-mt-limit h3{
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+.anls-mt-limit b .limit-edit-pencil{
+    font-weight: 600;
+    color: white;
+    border-radius: 20px;
+    transition: .3s;
+    margin-left: 15px;
+}
+.anls-mt-limit b .limit-edit-pencil:hover{
+    color: #FF9F29;
+    background-color: #fff;
+    padding: 5px;
 }
 
 
@@ -71,11 +99,19 @@
     }
     .anls-mt{
         height: 100px;
+        padding: 0px 20px;
     }
     .anls-mt h2{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     .anls-mt b{
         font-size: 1rem;
+    }
+    .anls-mt-limit{
+        height: 80px;
+        padding: 0px 20px;
+    }
+    .anls-mt-limit b,.anls-mt-limit h3{
+        font-size: 1.1rem;
     }
 }

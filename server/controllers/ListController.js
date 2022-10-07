@@ -1,5 +1,6 @@
 import ItemModel from "../models/ItemsModel.js";
 import MonthlyModel from "../models/MonthlyModel.js";
+import UserModel from "../models/UserModel.js";
 import { toMonthWords } from "../actions/toMonthWords.js";
 
 export const AddItem = async (req, res) => {
@@ -89,6 +90,19 @@ export const editMonthLimit = async (req, res) => {
       uid
     }, 
     {$set: {limit:monthlyLimit}}
+    ).then(()=>{
+    return res.status(201) .json({ err:false});
+    })
+  }
+  catch(err){
+    return res.status(201) .json({ err });
+  }
+};
+export const editDefaultMonthLimit = async (req, res) => {
+  try{
+    const { uid, monthlyLimit } = req.body;
+    await UserModel.findOneAndUpdate({uid}, 
+    {$set: {monthlyLimit}}
     ).then(()=>{
     return res.status(201) .json({ err:false});
     })

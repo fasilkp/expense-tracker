@@ -9,7 +9,7 @@ import "./Home.css";
 import EditMonthlyLimit from "../EditMonthlyLimit/EditMonthlyLimit";
 import { HiPencil } from "react-icons/hi";
 function Home() {
-    const { user } = useContext(AuthContext);
+    const { user} = useContext(AuthContext);
     const [list, setList] = useState([]);
     const currentDate=new Date()
     const [monthDetails, setMonthDetails]=useState({})
@@ -25,7 +25,7 @@ function Home() {
             data?.allItems?.forEach((item, index) => {
                 let date = new Date(item.createdAt);
                 if(index==0){
-                     newList.push({ ...data.allItems[0], newDate: true, date:toDateFormat(prevDate) });
+                     newList.push({ ...data.allItems[0], newDate: true,month:false, date:toDateFormat(prevDate) });
                 }
                 else if (date.getDate() !== prevDate.getDate() ||
                         date.getMonth() !== prevDate.getMonth() ||
@@ -66,7 +66,11 @@ function Home() {
                     <label>Balance</label>
                     <div className="home-amount">
                         <BiRupee />
-                        <h2>{monthDetails?.limit - monthDetails?.spent}</h2>
+                        <h2>{
+                        (monthDetails?.limit - monthDetails?.spent) ? 
+                        (monthDetails?.limit - monthDetails?.spent) : 0 
+
+                    }</h2>
                     </div>
                     <label>Month</label>
                     <div className="home-month">

@@ -61,9 +61,8 @@ function ListComp({list}) {
                 {
                     list.map((item, index)=>{
                         return < div key={index}>
-                        {item.newDate && <caption>
-                            {item.date}
-                        </caption>}
+                        {item.newDate && 
+                        <label className='caption'>{item.date}</label>}
                         <ListItem 
                         IconComponent={Components[item.category].icon}
                         className={Components[item.category].className}
