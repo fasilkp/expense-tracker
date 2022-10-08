@@ -2,19 +2,26 @@ import axios from 'axios';
 import React, { useContext ,useState} from 'react'
 import AuthContext from '../../context/AuthContext'
 import '../AddExpense/AddExpense.css'
+import Loader from '../Loader/Loader';
 
-function EditMonthlyLimit({handleClose, reloadPage}) {
-  const {user}=useContext(AuthContext);
+function EditMonthlyLimit({handleClose}) {
+  const {user, reloadPage,setReloadPage}=useContext(AuthContext);
   const [monthlyLimit, setMonthlyLimit]=useState(0);
+  const [load, setLoad]=useState(false)
   const handleSubmit=async(e)=>{
     e.preventDefault();
+    setLoad(true)
     await axios.post('/list/edit-month-limit',{
       uid:user._id,
       monthlyLimit:parseInt(monthlyLimit)
     }).then(res=>{
       if(res.data.err) alert("Edit limit failed") 
-      else {reloadPage(); handleClose() }
+      else {
+        setReloadPage(!reloadPage)
+        handleClose()
+         }
     })
+    setLoad(false)
   }
   return (
     <div className="AddExpense">
@@ -33,9 +40,9 @@ function EditMonthlyLimit({handleClose, reloadPage}) {
         <button type='submit' disabled={monthlyLimit===0 || monthlyLimit==""}>Add</button>
       </div>
     </form>
-   {/* {
-      load.submit && <Loader />
-    }  */}
+   {
+      load && <Loader />
+    } 
   </div>
   )
 }

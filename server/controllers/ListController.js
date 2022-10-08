@@ -104,7 +104,7 @@ export const editDefaultMonthLimit = async (req, res) => {
     await UserModel.findOneAndUpdate({uid}, 
     {$set: {monthlyLimit}}
     ).then(()=>{
-    return res.status(201) .json({ err:false});
+    return res.status(201) .json({ err:false, monthlyLimit});
     })
   }
   catch(err){
