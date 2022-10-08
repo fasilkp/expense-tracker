@@ -25,7 +25,7 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
     const [showEditDefaultLimit, setShowEditDefaultLimit]=useState(false)
     const navigate=useNavigate()
     const [selected, setSelected]=useState({...select, [selectedOption]:true})
-    const {updateLogin}=useContext(AuthContext)
+    const {updateLogin, reloadPage, setReloadPage}=useContext(AuthContext)
     const handleLogout=async ()=>{
         setload(true)
             await axios.post('/auth/logout');
@@ -114,8 +114,8 @@ function Sidebar({setSidebar, sidebar, style, style2, selectedOption}) {
         <div className="side-balance" onClick={()=>setSidebar(!sidebar)}>
         </div>
         {showAddExpense && <AddExpense setShowAddExpense={setShowAddExpense}/>}
-        {showEditLimit && <EditMonthlyLimit handleClose={()=>{setShowEditLimit(false)}} reloadPage={()=>window.location.reload()}/>}
-        {showEditDefaultLimit && <EditDefaultMonthLimit handleClose={()=>{setShowEditDefaultLimit(false)}} reloadPage={()=>window.location.reload()}/>}
+        {showEditLimit && <EditMonthlyLimit handleClose={()=>{setShowEditLimit(false)}} reloadPage={()=>setReloadPage(!reloadPage)}/>}
+        {showEditDefaultLimit && <EditDefaultMonthLimit handleClose={()=>{setShowEditDefaultLimit(false)}} reloadPage={()=>setReloadPage(!reloadPage)}/>}
         {openDialog && <AlertDialog 
         openAlert={true} 
         setOpenDialog={setOpenDialog} 

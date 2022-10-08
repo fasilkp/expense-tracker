@@ -9,7 +9,7 @@ import "./Home.css";
 import EditMonthlyLimit from "../EditMonthlyLimit/EditMonthlyLimit";
 import { HiPencil } from "react-icons/hi";
 function Home() {
-    const { user} = useContext(AuthContext);
+    const { user, reloadPage} = useContext(AuthContext);
     const [list, setList] = useState([]);
     const currentDate=new Date()
     const [monthDetails, setMonthDetails]=useState({})
@@ -48,7 +48,7 @@ function Home() {
             })
         }
         fetchData();
-    }, [reload]);
+    }, [reload, reloadPage]);
     return (
         <div className="Home">
             <div className="home-container">

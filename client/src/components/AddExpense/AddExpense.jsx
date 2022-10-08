@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from '../Loader/Loader'
 
 function AddExpense({setShowAddExpense}) {
-  const {user}=useContext(AuthContext)
+  const {user,reloadPage, setReloadPage }=useContext(AuthContext)
   const [load, setLoad]=useState({
     submit:false,
   })
@@ -72,7 +72,6 @@ function AddExpense({setShowAddExpense}) {
       const [category, setCategory]=useState(null)
       const [amount, setAmount]=useState(0)
       const [description, setDescription]=useState("")
-      const handleCategory=(e)=>setCategory(e.target.value)
       const handleSubmit=async(e)=>{
         e.preventDefault();
         setLoad({...load, submit:true})
@@ -83,7 +82,7 @@ function AddExpense({setShowAddExpense}) {
           if(result.data.err) alert("add item failed");
           else {
             setShowAddExpense(false)
-            window.location.reload()
+            setReloadPage(!reloadPage)
           }
           setLoad({...load, submit:false})
         }
@@ -126,8 +125,8 @@ function AddExpense({setShowAddExpense}) {
           onChange={(e)=>setAmount(parseInt(e.target.value))} />
         </div>
         <div className="add-btn">
-          <button onClick={()=>setShowAddExpense(false)}>Close</button>
-          <button onClick={handleSubmit}>Add</button>
+          <button type="reset" onClick={()=>setShowAddExpense(false)}>Close</button>
+          <button type="submit">Add</button>
         </div>
       </form>
       {

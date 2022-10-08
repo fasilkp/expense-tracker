@@ -12,7 +12,7 @@ import EditDefaultMonthLimit from "../EditDefaultMonthLimit/EditDefaultMonthLimi
 import ListComp from "../ListCompnent/ListCom";
 import "./Analysis.css";
 function Analysis() {
-  const { user } = useContext(AuthContext);
+  const { user, reloadPage, setReloadPage } = useContext(AuthContext);
   const [monthDetails, setMonthDetails] = useState([]);
   const [monthList, setMonthList] = useState([]);
   const [spendList, setSpendList] = useState([]);
@@ -119,7 +119,7 @@ function Analysis() {
       }
     }
     fetchData();
-  }, []);
+  }, [reloadPage]);
   const str="save-down"
   return (
     <div className="Analysis">
@@ -157,7 +157,7 @@ function Analysis() {
           <ListComp list={monthDetails}></ListComp>
         </div>
       </div>
-      {showEditDefaultLimit && <EditDefaultMonthLimit handleClose={()=>{setShowEditDefaultLimit(false)}} reloadPage={()=>window.location.reload()}/>}
+      {showEditDefaultLimit && <EditDefaultMonthLimit handleClose={()=>{setShowEditDefaultLimit(false)}} reloadPage={()=>setReloadPage(!reloadPage)}/>}
     </div>
   );
 }

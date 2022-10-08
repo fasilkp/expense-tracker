@@ -7,7 +7,7 @@ import { toMonthWords } from '../../actions/toMonthWords'
 import ReactApexChart from 'react-apexcharts'
 function Category() {
     const defaultSet={desc:false, createdAt:false, balance:false, month:false}
-    const {user}=useContext(AuthContext)
+    const {user, reloadPage}=useContext(AuthContext)
     const [monthDetails,setMonthDetails]=useState({})
     const [seriesList,setSeriesList]=useState([])
     const categories=[
@@ -29,7 +29,7 @@ function Category() {
 
             }
         }fetchData();
-    },[])
+    },[reloadPage])
     const state = {
           
         series: seriesList,

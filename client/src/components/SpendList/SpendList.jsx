@@ -6,7 +6,7 @@ import AuthContext from "../../context/AuthContext";
 import ListComp from "../ListCompnent/ListCom";
 import "./SpendList.css";
 function SpendList() {
-  const { user } = useContext(AuthContext);
+  const { user, reloadPage } = useContext(AuthContext);
   const [list, setList] = useState([]);
   const currentDate = new Date();
   const currentMonth=toMonthWords(currentDate.getMonth())+currentDate.getFullYear()
@@ -59,7 +59,7 @@ function SpendList() {
       setList(newList);
     }
     fetchData();
-  }, [month]);
+  }, [month, reloadPage]);
   return ( 
     <div className="SpendList">
       <div className="spend-list-container">

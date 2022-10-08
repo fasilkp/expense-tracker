@@ -6,7 +6,7 @@ const AuthContext = createContext();
 function AuthContextProvider(props) {
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn]=useState(null)
-  const [reload, setReload]=useState(false)
+  const [reloadPage, setReloadPage]=useState(false)
 
   async function updateLogin() {
     try{
@@ -26,7 +26,7 @@ function AuthContextProvider(props) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, updateLogin, loggedIn, reload, setReload }}>
+    <AuthContext.Provider value={{ user, updateLogin, loggedIn, reloadPage, setReloadPage }}>
       {props.children}
     </AuthContext.Provider>
   );
