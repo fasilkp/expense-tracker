@@ -11,21 +11,8 @@ function SpendList() {
   const currentDate = new Date();
   const currentMonth=toMonthWords(currentDate.getMonth())+currentDate.getFullYear()
   const [month, setMonth] = useState(currentMonth);
+  const [allMonthList, setAllMonthList] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "dec",
-  ];
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.post("/list/get-items", {
@@ -56,7 +43,11 @@ function SpendList() {
           newList.push({ ...item, newDate: false, month:false });
         }
       });
-      setList(newList);
+      setList(newList)
+      const allMonths = await axios.post("/list/get-all-month-details", {
+            uid: user._id,
+      });
+      setAllMonthList(allMonths.data)
     }
     fetchData();
   }, [month, reloadPage]);
@@ -71,8 +62,8 @@ function SpendList() {
               className="list-month-input"
               onChange={(e) => setMonth(e.target.value)}
             >
-              {months.map((item, index) => {
-                return <option key={index} value={item + 2022}>{item}/2022</option>;
+              {allMonthList.map((item, index) => {
+                return <option key={index} value={item.month}>{item.month}</option>;
               })}
             </select>
           </div>
