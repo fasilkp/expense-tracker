@@ -9,6 +9,7 @@ import axios from 'axios'
 import AuthContext from './context/AuthContext';
 import CategoryPage from './pages/CategoryPage';
 import AnalysisPage from './pages/AnalysisPage';
+import DemoLoginPage from './pages/DemoLoginPage';
 axios.defaults.withCredentials = true;
 
 // axios.defaults.baseURL = "http://localhost:8080/api"
@@ -31,12 +32,14 @@ function App() {
                   <Route path="/analysis" element={<AnalysisPage />}/>
                   <Route path="/login" element={<LoginPage />}/>
                   <Route path="/register" element={<RegisterPage/>}/>
+                  <Route path="/demo-login" element={<DemoLoginPage/>}/>
                 </Routes>
         }
         {
           loggedIn===false &&
                 <Routes>
                   <Route path="*" element={<LoginPage />}/>
+                  <Route path="/demo-login" element={<DemoLoginPage/>}/>
                   <Route path="/login" element={<LoginPage />}/>
                   <Route path="/register" element={<RegisterPage/>}/>
                 </Routes>

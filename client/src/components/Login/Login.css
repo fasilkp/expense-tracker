@@ -20,6 +20,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
+    padding-bottom: 20px;
 }
 .redirect-login{
     text-decoration: none;
@@ -58,6 +59,13 @@
 }
 .login-btn{
     margin: 30px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.login-btn b{
+    font-size: .8rem;
 }
 .login-btn button{
     background-color: var(--mainColor);
@@ -65,6 +73,13 @@
 }
 .login-btn button:disabled{
     opacity: 75%;
+}
+button.demo-login{
+    height: 45px;
+    background-color: white;
+    color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+    font-weight: 500;
 }
 @media only screen and (max-width: 600px) {
     .Login{
@@ -79,6 +94,9 @@
     }
     .login-section{
         flex: 40%;
+    }
+    .login-header{
+        margin: 30px 0px;
     }
 
 }

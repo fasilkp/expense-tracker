@@ -35,7 +35,7 @@
     padding-left: 15px;
     font-size: 1rem;
     display: flex;
-    font-weight: 560;
+    font-weight: 550;
     align-items: center;
     color: rgba(128, 128, 128, 0.5);
     border-radius: 20px;
@@ -45,7 +45,7 @@
 }
 .side-list-item.selected{
     color: var(--thirdColor);
-    font-weight: 650;
+    font-weight: 560;
     background-color: rgba(0, 0, 0, 0.05);
 }
 .side-list-item:hover{
