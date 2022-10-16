@@ -73,7 +73,7 @@ function DemoLogin() {
                     <div className="login-btn">
                         <button onClick={handleSubmit}>Login</button>
                         <b>OR</b>
-                        <button className='demo-login' onClick={demoLogin}>Login as Demo</button>
+                        <button className='demo-login' onClick={demoLogin}>Demo Login</button>
 
                     </div>
                 </form>

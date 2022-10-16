@@ -35,7 +35,7 @@ export default function AlertDialog({text, openAlert, setOpenDialog, handleSubmi
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus>Cancel</Button>
+          <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleSubmit}>
             OK
           </Button>
